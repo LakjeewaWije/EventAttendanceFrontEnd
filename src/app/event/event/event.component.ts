@@ -6,7 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event.component.css']
 })
 export class EventComponent implements OnInit {
-
+  Name: string;
+  tasks = [];
+  onClick() {
+    this.tasks.push({name: this.Name});
+    this.Name = '';
+  }
   constructor() { }
 
   ngOnInit() {

@@ -1,3 +1,30 @@
-<p>
-  event works!
-</p>
+<div class="wrp">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7" >
+        <ul class="list-group">
+          <li *ngFor="let task of tasks" class="list-group-item">
+            <span> {{ task.name }} </span>
+          </li>
+        </ul>
+
+      </div>
+      <div class="col-sm-5 ">
+        <div class="card rightsplit" >
+          <div class="card-body">
+            <h1 class="card-title" style="text-align:center">
+              Create a New Event
+            </h1>
+            <form>
+              <div class="form-group">
+                <!--<label class="text" for="eventname">Event Name</label>-->
+                <input type="text" class="form-control" id="eventname" placeholder="Event Name" [(ngModel)]="Name" [ngModelOptions]="{standalone: true}">
+              </div>
+              <button type="submit" class="btn btn-primary btntext  buttoncrt1" (click)="onClick()">Create Event</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
