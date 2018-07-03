@@ -2,12 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-7" >
-        <ul class="list-group">
-          <li *ngFor="let task of tasks" class="list-group-item">
-            <span> {{ task.name }} </span>
+        <ul class="list-group ">
+          <li *ngFor="let nm  of Eventnames" class="list-group-item divli">
+            <span> {{ nm.name }} </span>
           </li>
         </ul>
-
       </div>
       <div class="col-sm-5 ">
         <div class="card rightsplit" >
@@ -17,10 +16,9 @@
             </h1>
             <form>
               <div class="form-group">
-                <!--<label class="text" for="eventname">Event Name</label>-->
                 <input type="text" class="form-control" id="eventname" placeholder="Event Name" [(ngModel)]="Name" [ngModelOptions]="{standalone: true}">
               </div>
-              <button type="submit" class="btn btn-primary btntext  buttoncrt1" (click)="onClick()">Create Event</button>
+              <button type="submit" class="btn btn-primary btntext  buttoncrt1" (click)="CreateEvent()">Create Event</button>
             </form>
           </div>
         </div>
