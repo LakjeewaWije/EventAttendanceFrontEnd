@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Event} from '../event';
+import { HttpClient } from '@angular/common/http';
 import {EventService} from '../event.service';
 @Component({
   selector: 'app-event',
@@ -7,7 +7,7 @@ import {EventService} from '../event.service';
   styleUrls: ['./event.component.css']
 })
 export class EventComponent implements OnInit {
-  constructor(private eventservice: EventService) { }
+  constructor(private eventservice: EventService , private http: HttpClient) { }
    Name: string; // stores the event name
   Eventnames = []; // stores all event name returned by  getEvent method from event service
   /**
@@ -16,10 +16,12 @@ export class EventComponent implements OnInit {
    */
   createEvent() {
     this.eventservice.createEvent(this.Name);
-    this.Eventnames = this.eventservice.getEvents();
+    this.Eventnames = this.eventservice.Eventnames;
   }
-  ngOnInit() {
+  ngOnInit(): void {
+    this.eventservice.getEvents();
   }
+
 
 }
 
