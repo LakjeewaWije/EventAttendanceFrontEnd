@@ -3,15 +3,17 @@ import {Event} from './event';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/index';
+
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
 
-  constructor(private http: HttpClient) { }
-  Eventnames: string[] = []; // array to  store event  names
+  constructor(private http: HttpClient) {
+  }
+   event = new Event(); // instantiating the event class
+    events = [];
 
-  event =  new Event(); // instantiating the event class
   /**
    * method to create an event and save that event to event names array
    * @param {string} eventname
@@ -19,23 +21,38 @@ export class EventService {
   createEvent(eventname: string) {
     this.event.setEName(eventname);
 
-    const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin' : '*'});
-    const req = this.http.post('http://localhost:9000/event',  {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Origin': '*'
+    });
+    const req = this.http.post('http://localhost:9000/event', {
       eventName: this.event.getEName(),
       eventDesc: 'lakiyaaaa event ',
       eventDateTime: this.event.getEDateTime()
-    }, {headers : headers}).subscribe(res => {console.log(res); },
-        err => {
-          console.log('Error occured');
-        }
-      );
+    }, {headers: headers}).subscribe(res => {
+        console.log(res);
+      },
+      err => {
+        console.log('Error occured');
+      }
+    );
+    this.getEvents();
   }
 
   getEvents() {
-    const headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8', 'Access-Control-Allow-Origin' : '*'});
-    this.http.get('http://localhost:9000/con', {headers : headers}).subscribe(
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Origin': '*'
+    });
+    this.http.get('http://localhost:9000/con', {headers: headers}).subscribe(
       data => {
-        console.log(data);
+        const eventsFromResponse = data.data;
+        console.log(eventsFromResponse);
+        this.events.length = 0;
+        for (let i = 0; i < eventsFromResponse.length; i++) {
+          this.events.push(eventsFromResponse[i]);
+        }
+        console.log(this.events);
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -45,6 +62,7 @@ export class EventService {
         }
       }
     );
-    // this.Eventnames.push(this.event.getEName());
   }
 }
+
+

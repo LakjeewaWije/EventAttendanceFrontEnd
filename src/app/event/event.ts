@@ -4,7 +4,7 @@ import {Time} from '@angular/common';
 export class Event {
   private eName: string; // event name
   private eDate: Date; // event date object
-  datestring: number;
+  private eDsc: string; // event description
   setEName(name: string): void {
     this.eName = name;
   }
@@ -20,8 +20,4 @@ export class Event {
   }
 }
 
-interface UserResponse {
-  name: string;
-  description: string;
-  company: string;
-}
+
