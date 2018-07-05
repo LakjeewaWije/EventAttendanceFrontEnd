@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFireStorage } from 'angularfire2/storage';
+
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 export class AppComponent {
   title = 'Event List';
 
-  constructor(private afStorage: AngularFireStorage) {
+  constructor() {
 
   }
 }
