@@ -1,4 +1,5 @@
 <div class="container">
+<link rel="manifest" href="/manifest.json">
     
     <h3 class="heading">To attend the event</h3>
     <div class="row">
@@ -10,9 +11,26 @@
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 qrCode">
+                <ngx-qrcode 
+                [qrc-element-type]="elementType" 
+                [qrc-value] = "value">
+                </ngx-qrcode>
     
     </div>
-    
-    
+    </div>  
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js">
+         const messaging = firebase.messaging();
+         messaging.usePublicVapidKey("BMF7Nb37GRXLfMMhiATmxQWvrOwQ0CpocaZHPCimLk0QIWVLqGva2_aHfmVRsNe9NPA0cPqWLD1P8Tc0tqB7ySo");
+        
+         messaging.requestPermission().then(function() {
+                console.log('Notification permission granted.');
+                // TODO(developer): Retrieve an Instance ID token for use with FCM.
+                // ...
+                }).catch(function(err) {
+                console.log('Unable to get permission to notify.', err);
+                });
+                
+        </script>
+
     </div>
-    </div>
+
