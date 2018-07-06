@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { QrComponent } from './qr.component';
-
+import {QrComponent} from './qr/qr.component';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    NgxQRCodeModule
   ],
   declarations: [QrComponent]
 })

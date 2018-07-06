@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AngularFirestore } from 'angularfire2/firestore';
+import {QrService} from '../qr.service';
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.component.html',
   styleUrls: ['./qr.component.css']
 })
 export class QrComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private qrservice: QrService, anglrfire: AngularFirestore) {
+  }
+  value: string = Math.random().toString(36).substr(2, 60);
+  ngOnInit(): void {
+    this.qrservice.getUtoken();
   }
 
 }
