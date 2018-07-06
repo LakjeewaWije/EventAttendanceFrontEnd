@@ -1,16 +1,18 @@
-<div class="container">
-<link rel="manifest" href="/manifest.json">
-    
-    <h3 class="heading">To attend the event</h3>
+
+<h3 class="heading">To attend the event</h3>
+    <div class="container">
     <div class="row">
-    <div class="steps">
+    <div class="steps col-xs-12 col-md-5 col-lg-6">
             <p class="stepNo">Step 1.)</p> <p class="stepDetail">Open the Mobile app</p>
             <p class="stepNo">Step 2.)</p> <p class="stepDetail">Click on an event you want to attend to</p>
             <p class="stepNo">Step 3.)</p> <p class="stepDetail">Point your phone to the screen to capture the code</p>
         
     </div>
 
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 qrCode">
+    <div class="qrCode  col-xs-12 col-md-5 col-lg-6">
+    <h4 class="message">Participants, please check into the event here</h4>
+
+    
                 <ngx-qrcode 
                 [qrc-element-type]="elementType" 
                 [qrc-value] = "value">
@@ -18,19 +20,6 @@
     
     </div>
     </div>  
-        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js">
-         const messaging = firebase.messaging();
-         messaging.usePublicVapidKey("BMF7Nb37GRXLfMMhiATmxQWvrOwQ0CpocaZHPCimLk0QIWVLqGva2_aHfmVRsNe9NPA0cPqWLD1P8Tc0tqB7ySo");
-        
-         messaging.requestPermission().then(function() {
-                console.log('Notification permission granted.');
-                // TODO(developer): Retrieve an Instance ID token for use with FCM.
-                // ...
-                }).catch(function(err) {
-                console.log('Unable to get permission to notify.', err);
-                });
-                
-        </script>
 
     </div>
 

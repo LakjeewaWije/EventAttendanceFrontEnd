@@ -1,111 +1,33 @@
-.qrMobile {
-    height: 250px;
-    width: 200px;
-    margin: 20px;
-
-}
-
-.qrPic {
-    height: 250px;
-    width: 200px;
-}
-
-.qrCode {
-    height: 300px;
-    width: 250px;
-    border: 1px black solid; 
-    margin: 20px 20px 20px 30px;
-}
-
-.steps {
-    height: 250px;
-    width: 450px;
-    font-size: 16px;
-    text-align: justify center; 
-    margin: 20px;   
-    padding: 20px; 
-}
-
-.stepNo {
-    color: #bfbfbf;
-}
-
-.stepDetail {
-    color: #f2f2f2;
-}
-
-.container {
-    margin: 0 auto;
-    width: 50%;
-
-}
 
 .heading {
     text-align: center;
-    margin-top: 40px;
-    color: #0099cc;
+    color: #008fb3;
+    font-weight: 900;
+}
+
+.stepNo {
+    color: #8c8c8c;
 
 }
- /* smartphones, iPhone, portrait 480x320 phones */ 
-@media (min-width:320px)  {
-    .steps {
-        height: 280px;
-        width: 250px;
-        margin: 20px auto;
-    }
 
-    .qrMobile {
-        margin: 20px;
-    }
+.stepDetail {
+    color: #fff;
+}
 
-    .qrCode {
-        margin: 20px auto;
+.steps {
+    font-size: 18px;
+}
+
+.message {
+    color: #000;
+
     
-    }
-    
+}
 
+.container {
+    margin: 20px;
+    padding: 20px;
 }
-/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-@media (max-width:481px)  {
-    .heading {
-        font-size:20px;
-    }
-    
 
-}
- /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
-@media (min-width:641px)  {
-    .steps {
-        height: 250px;
-        width: 450px;
-        font-size: 16px;
-        text-align: justify center; 
-        margin: 20px;   
-        padding: 20px; 
-    }    
-}
- /* tablet, landscape iPad, lo-res laptops ands desktops */ 
-@media (min-width:961px)  {}
- /* big landscape tablets, laptops, and desktops */ 
-@media (min-width:1025px) {
-    .steps {
-        height: 250px;
-        width: 450px;
-        font-size: 16px;
-        text-align: justify center; 
-        margin: 20px;   
-        padding: 20px; 
-    }
-}
- /* hi-res laptops and desktops */ 
-@media (min-width:1281px) {
-    .steps {
-        height: 250px;
-        width: 450px;
-        font-size: 16px;
-        text-align: justify center; 
-        margin: 20px;   
-        padding: 20px; 
-    }
-   
-}
+
+

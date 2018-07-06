@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-qr-view',
   templateUrl: './qr-view.component.html',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class QrViewComponent implements OnInit {
 
   elementType : 'url' | 'canvas' | 'img' = 'url';
-  value : string = 'Techiediaries';
+  value : string = 'Example String';
 
 
   constructor() { }
