@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
 import {QrService} from '../qr.service';
 @Component({
   selector: 'app-qr',
@@ -7,11 +6,11 @@ import {QrService} from '../qr.service';
   styleUrls: ['./qr.component.css']
 })
 export class QrComponent implements OnInit {
-  constructor(private qrservice: QrService, anglrfire: AngularFirestore) {
+  constructor(private qrservice: QrService) {
   }
   value: string = Math.random().toString(36).substr(2, 60);
   ngOnInit(): void {
-    this.qrservice.getUtoken();
+    this.qrservice.getTokenGG();
   }
 
 }
