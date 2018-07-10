@@ -8,8 +8,14 @@ import {QrService} from '../qr.service';
 export class QrComponent implements OnInit {
   constructor(private qrservice: QrService) {
   }
-  value: string = Math.random().toString(36).substr(2, 60);
-  ngOnInit(): void {
+  value;
+  createQr() {
+    this.value = '{' + '\n'  + '"eventId": ' + '"' + localStorage.getItem('eventId') + '"' + '\n' + '"eventName": ' + '"' +  localStorage.getItem('eventName') + '"' + '\n' + '"UUID": '   + '"' +
+      this.qrservice.resposnearray[0] + '"' + '\n' + '"browserToken": ' + '"' + this.qrservice.resposnearray[1] + '"' + '\n' + '}' ;
+  }
+  ngOnInit() {
+    localStorage.setItem('eventId', 'e1');
+    localStorage.setItem('eventName', 'GoogleIO');
     this.qrservice.getTokenGG();
   }
 

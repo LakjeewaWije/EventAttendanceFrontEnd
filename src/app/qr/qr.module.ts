@@ -5,7 +5,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
 @NgModule({
   imports: [
     CommonModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
   ],
   declarations: [QrComponent]
 })

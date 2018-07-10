@@ -4,14 +4,6 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: 'AIzaSyBwNA6TeFfLPsz2H6Xo4diVIvFOqPqIqwM',
-    authDomain: 'eventattendancefrontend.firebaseapp.com',
-    databaseURL: 'https://eventattendancefrontend.firebaseio.com',
-    projectId: 'eventattendancefrontend',
-    storageBucket: 'eventattendancefrontend.appspot.com',
-    messagingSenderId: '997776762015'
-  }
 };
 
 /*

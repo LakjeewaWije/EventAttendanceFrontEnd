@@ -14,6 +14,7 @@
         <div class="card rightsplit" >
           <div class="card-body">
             <div class=" center-block justify-content-md-centre">
+              <button type="submit" class="btn btn-primary btntext  buttoncrt1" (click)="createQr()">Create Event</button>
             <ngx-qrcode class="qr"
               [qrc-element-type]="elementType"
               [qrc-value] = "value">
@@ -21,6 +22,11 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="goback">
+      <button type="submit" class="btn btn-primary btntext  buttoncrt1" (click)="goBack()">Back</button>
       </div>
     </div>
   </div>
