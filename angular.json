@@ -27,7 +27,6 @@
               "src/styles.css"
             ],
             "scripts": [
-              "dist/EventAttendanceKliq/firebase-messaging-sw.js"
             ]
           },
           "configurations": {
