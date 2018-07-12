@@ -25,7 +25,7 @@ export class EventService {
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin': '*'
     });
-    const req = this.http.post('http://localhost:9000/event', {
+    const req = this.http.post('http://192.168.8.103:9000/event', {
       eventName: this.event.getEName(),
       eventDesc: 'lakiyaaaa event ',
       eventDateTime: this.event.getEDateTime()
@@ -44,7 +44,7 @@ export class EventService {
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin': '*'
     });
-    this.http.get('http://localhost:9000/con', {headers: headers}).subscribe(
+    this.http.get<any>('http://192.168.8.103:9000/con', {headers: headers}).subscribe(
       data => {
         const eventsFromResponse = data.data;
         console.log(eventsFromResponse);
