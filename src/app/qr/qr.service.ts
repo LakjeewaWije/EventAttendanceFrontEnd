@@ -28,11 +28,11 @@ export class QrService {
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin': '*'
     });
-     this.http.post<object>('http://localhost:9000/qr', {
+     this.http.post<any>('http://localhost:9000/qr', {
       browserToken: 'lakiyaisgooodbutheisgoodalso'
     }, {headers: headers}).subscribe(data => {
         console.log(data);
-        // console.log(data.data);
+        console.log(data.data);
         const  response = data.data;
         console.log(response);
         console.log('UUID  ' + response.uuid + '   Token  ' + response.browserToken);
