@@ -1,22 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import {QrService} from '../qr.service';
+import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.component.html',
   styleUrls: ['./qr.component.css']
 })
 export class QrComponent implements OnInit {
-  constructor(private qrservice: QrService) {
-  }
+  eventname: string;
+  eventid: string;
   value;
-  createQr() {
-    this.value = '{' + '\n'  + '"eventId": ' + '"' + localStorage.getItem('eventId') + '"' + ',' + '\n' + '"eventName": ' + '"' +  localStorage.getItem('eventName') + '"' + ',' + '\n' + '"UUID": '   + '"' +
-      this.qrservice.resposnearray[0] + '"' + ',' + '\n' + '"browserToken": ' + '"' + this.qrservice.resposnearray[1] + '"' + '\n' + '}' ;
+  constructor() {}
+  constructor(private qrservice: QrService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      // console.log(params);
+      this.eventname = params['eventName'];
+      this.eventid = params['eventId'];
+      this.qrservice.getparamiteredurlk(this.eventname, this.eventid);
+      // console.log('Event Id' + this.eventid);
+      // console.log('Event Name' + this.eventname);
+    });
   }
-  ngOnInit() {
-    localStorage.setItem('eventId', '1');
-    localStorage.setItem('eventName', 'GoogleIO');
-    this.qrservice.getTokenGG();
+  setToken() {
+    this.qrservice.setToken();
+  }
+  ngOnInit(): void {
+    this.setToken();
   }
 
 }

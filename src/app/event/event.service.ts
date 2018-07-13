@@ -25,18 +25,23 @@ export class EventService {
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin': '*'
     });
-    const req = this.http.post('http://192.168.8.103:9000/event', {
+    const req = this.http.post<any>('http://192.168.8.103:9000/event', {
       eventName: this.event.getEName(),
       eventDesc: 'lakiyaaaa event ',
       eventDateTime: this.event.getEDateTime()
     }, {headers: headers}).subscribe(res => {
-        console.log(res);
+        const eventsFromResponse = res.data;
+        console.log(eventsFromResponse);
+        this.events.length = 0;
+        for (let i = 0; i < eventsFromResponse.length; i++) {
+          this.events.push(eventsFromResponse[i]);
+        }
+        console.log(this.events);
       },
       err => {
         console.log('Error occured');
       }
     );
-    this.getEvents();
   }
 
   getEvents() {
@@ -47,12 +52,12 @@ export class EventService {
     this.http.get<any>('http://192.168.8.103:9000/con', {headers: headers}).subscribe(
       data => {
         const eventsFromResponse = data.data;
-        console.log(eventsFromResponse);
+        // console.log(eventsFromResponse);
         this.events.length = 0;
         for (let i = 0; i < eventsFromResponse.length; i++) {
           this.events.push(eventsFromResponse[i]);
         }
-        console.log(this.events);
+        // console.log(this.events);
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
