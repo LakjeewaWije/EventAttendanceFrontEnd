@@ -18,13 +18,18 @@ export class EventComponent implements OnInit {
    * @constructor
    */
   createEvent() {
+    console.log('1');
     this.eventservice.createEvent(this.Name);
+    console.log('4');
      this.events = this.eventservice.events;
+    console.log('5');
     this.Name = null;
   }
   ngOnInit(): void {
+    console.log('1');
     this.events = this.eventservice.events;
     this.eventservice.getEvents();
+    console.log('2');
   }
 
 

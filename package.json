@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^6.0.9",
     "@angular/pwa": "^0.6.8",
     "@angular/router": "^6.0.9",
+    "angular-loading-bar": "^0.9.0",
     "angular-timezone-selector": "^1.2.1",
     "angularfire2": "^5.0.0-rc.11",
     "core-js": "^2.5.4",

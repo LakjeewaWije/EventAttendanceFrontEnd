@@ -1,31 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {QrService} from '../qr.service';
 import {ActivatedRoute} from '@angular/router';
+import { Component } from '@angular/core';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.component.html',
   styleUrls: ['./qr.component.css']
 })
 export class QrComponent implements OnInit {
-  eventname: string;
-  eventid: string;
   value;
-  constructor() {}
-  constructor(private qrservice: QrService, private route: ActivatedRoute) {
+  elem: any;
+  qrPayload = {};
+  heroes: Hero[];
+  constructor(private qrservice: QrService, private route: ActivatedRoute , private http: HttpClient) {
     this.route.params.subscribe(params => {
-      // console.log(params);
-      this.eventname = params['eventName'];
-      this.eventid = params['eventId'];
-      this.qrservice.getparamiteredurlk(this.eventname, this.eventid);
-      // console.log('Event Id' + this.eventid);
-      // console.log('Event Name' + this.eventname);
+      this.qrPayload.eventName = params['eventName'];
+      this.qrPayload.eventId  = params['eventId'];
     });
   }
-  setToken() {
-    this.qrservice.setToken();
-  }
-  ngOnInit(): void {
-    this.setToken();
-  }
 
+
+
+
+  ngOnInit(): void {
+    this.elem = document.getElementById('myBar');
+    this.elem.style.width = 50 + '%';
+    this.setToken();
+    this.elem.style.width = 75 + '%';
+    this.qrPayload.UUID = this.qrservice.resposnearray[0];
+    this.qrPayload.browserToken = this.qrservice.resposnearray[1];
+    this.value = '{' + '\n'  + '"eventId": ' + '"' + this.qrPayload.eventId + '"' + ',' + '\n' + '"eventName": ' + '"' +  this.qrPayload.eventName + '"' + ',' + '\n' + '"UUID": '   + '"' +
+      this.qrPayload.UUID + '"' + ',' + '\n' + '"browserToken": ' + '"' + this.qrPayload.browserToken + '"' + '\n' + '}' ;
+    this.elem.style.width = 100 + '%';
+  }
+  setToken(): any {
+    this.qrservice.setToken().subscribe(hero => {
+      this.heroes = hero;
+    });
+  }
 }

@@ -1,6 +1,10 @@
 <div class="wrp">
   <div class="container-fluid">
     <div class="row">
+      <div id="myProgress">
+        <div id="myBar"></div>
+      </div>
+    <div class="row">
       <div class="col-sm-8" >
         <div class="card leftsplit" >
           <div class="card-body">
@@ -14,7 +18,7 @@
         <div class="card rightsplit" >
           <div class="card-body">
             <div class=" center-block justify-content-md-centre">
-            <ngx-qrcode class="qr"
+            <ngx-qrcode  class="qr"
               [qrc-element-type]="elementType"
               [qrc-value] = "value">
             </ngx-qrcode>
