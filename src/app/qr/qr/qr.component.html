@@ -1,37 +1,33 @@
-<div class="wrp">
+<!--<div class="wrp">-->
   <div class="container-fluid">
-    <div class="row">
-      <div id="myProgress">
-        <div id="myBar"></div>
+    <div class="row tpdiv">
+
+  </div>
+    <div class="wrp">
+    <div class="row ">
+      <div class="col-sm-3" >
       </div>
-    <div class="row">
-      <div class="col-sm-8" >
-        <div class="card leftsplit" >
-          <div class="card-body">
-         <h2 class="stepDetail">1. Open the Mobile app</h2>
-         <h2 class="stepDetail">2. Click on an event you want to attend to</h2>
-         <h2 class="stepDetail">3. Point your phone to the screen to capture the   code</h2>
-      </div>
-        </div>
-      </div>
-      <div class="col-sm-4 ">
-        <div class="card rightsplit" >
-          <div class="card-body">
-            <div class=" center-block justify-content-md-centre">
-            <ngx-qrcode  class="qr"
-              [qrc-element-type]="elementType"
-              [qrc-value] = "value">
-            </ngx-qrcode>
+      <div class="col-sm-6" >
+        <div class="card">
+          <div class="card leftsplit" >
+            <div class="card-body mx-auto ">
+              <h1>To Attend the Event</h1>
+              <h6 class="stepDetail">1. Open the Mobile app</h6>
+              <h6 class="stepDetail">2. Click on an event you want to attend to</h6>
+              <h6 class="stepDetail">3. Point your phone to the screen to capture the   code</h6>
+              <div class="qrimg">
+              <ngx-qrcode  class="qr "
+                           [qrc-element-type]="elementType"
+                           [qrc-value] = "value">
+              </ngx-qrcode>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="goback">
-      <button type="submit" class="btn btn-primary btntext  buttoncrt1" (click)="goBack()">Back</button>
+      <div class="col-sm-3" >
       </div>
     </div>
+    </div>
   </div>
-</div>
 

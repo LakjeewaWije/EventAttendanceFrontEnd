@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {EventService} from '../event.service';
-import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { MessagingService } from './messasing.service';
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
@@ -13,6 +13,7 @@ export class EventComponent implements OnInit {
   }
    Name: string; // stores the event name
   events = []; // stores all event name returned by  getEvent method from event service
+  fcmToken: string;
   /**
    * calling the create even method in event service
    * @constructor
@@ -30,8 +31,31 @@ export class EventComponent implements OnInit {
     this.events = this.eventservice.events;
     this.eventservice.getEvents();
     console.log('2');
+    this.recieveToken();
   }
 
 
+
+  recieveToken() {
+    firebase.messaging().requestPermission().then(function() {
+      console.log('Notification permission granted.');
+
+      firebase.messaging().getToken()
+        .then(function(currentToken) {
+          if (currentToken) {
+            localStorage.setItem('fcmToken', currentToken);
+            console.log(currentToken);
+          } else {
+            console.log('No Instance ID token available. Request permission to generate one.');
+          }
+        });
+    }).catch(function(err) {
+      console.log('Unable to get permission to notify.', err);
+    });
+    firebase.messaging().onMessage(function(payload) {
+      console.log('On message: ', payload);
+    });
+
+  }
 }
 

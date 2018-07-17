@@ -11,7 +11,6 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class QrService {
-  resposnearray = [];
   browserToken: string;
   app = firebase.initializeApp( {
     apiKey: 'AIzaSyBwNA6TeFfLPsz2H6Xo4diVIvFOqPqIqwM',
