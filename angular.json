@@ -21,12 +21,14 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/firebase-messaging-sw.js"
+              "src/firebase-messaging-sw.js",
+              "manifest.json"
             ],
             "styles": [
               "src/styles.css"
             ],
             "scripts": [
+              "src/firebase-messaging-sw.js"
             ]
           },
           "configurations": {

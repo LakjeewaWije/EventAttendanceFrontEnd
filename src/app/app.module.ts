@@ -9,9 +9,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {EventModule} from './event/event.module';
 import {FormsModule} from '@angular/forms';
 import {EventComponent} from './event/event/event.component';
+import { environment} from '../environments/environment';
 // import {DateFormatter} from "@angular/common/src/pipes/deprecated/intl"
 // import {DatePickerModule} from 'ng2-datepicker';
 // angular.module('timezoneSelectExample', ['angular-timezone-selector']);
+
+firebase.initializeApp(environment.config);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +28,7 @@ import {EventComponent} from './event/event/event.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserModule,
-    QrModule,
-    ServiceWorkerModule.register('/combined-worker.js', { enabled: environment.production })
-
+    QrModule
   ],
   providers: [],
   bootstrap: [AppComponent]
