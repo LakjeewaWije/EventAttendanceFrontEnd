@@ -16,10 +16,10 @@ export class EventService {
 
   /**
    * method to create an event and save that event to event names array
-   * @param {string} eventname
+   * @param {string} eventName
    */
-  createEvent(eventname: string) {
-    this.event.setEName(eventname);
+  createEvent(eventName: string) {
+    this.event.setEName(eventName);
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
