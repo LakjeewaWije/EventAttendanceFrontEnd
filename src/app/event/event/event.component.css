@@ -1,4 +1,4 @@
-.wrp{
+.container{
   margin-top: 7rem;
   margin-bottom: 3rem;
 
@@ -10,13 +10,13 @@
 
 
 
-.buttoncrt1 {
+.createEvent {
   background-color: rgba(195, 13, 31, 0.95);
   color: #ffffff;
   border: 2px solid #af0615;
 }
 
-.buttoncrt1:hover {
+.createEvent:hover {
   background-color: rgba(175, 17, 30, 0.4);
   color: white;
 }

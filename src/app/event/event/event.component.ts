@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {EventService} from '../event.service';
 import { ActivatedRoute } from '@angular/router';
-import { MessagingService } from './messasing.service';
+import * as firebase from 'firebase';
+
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
@@ -31,12 +32,9 @@ export class EventComponent implements OnInit {
     this.events = this.eventservice.events;
     this.eventservice.getEvents();
     console.log('2');
-    this.recieveToken();
+    this.receiveToken();
   }
-
-
-
-  recieveToken() {
+  receiveToken() {
     firebase.messaging().requestPermission().then(function() {
       console.log('Notification permission granted.');
 
@@ -55,7 +53,6 @@ export class EventComponent implements OnInit {
     firebase.messaging().onMessage(function(payload) {
       console.log('On message: ', payload);
     });
-
   }
 }
 

@@ -10,8 +10,6 @@ const routes: Routes = [
   { path: 'qrscan/:eventId/:eventName', component: QrComponent },
 ];
 
-
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),

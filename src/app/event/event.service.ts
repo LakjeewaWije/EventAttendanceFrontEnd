@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Event} from './event';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs/index';
+
 
 @Injectable({
   providedIn: 'root'

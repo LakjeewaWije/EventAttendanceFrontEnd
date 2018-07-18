@@ -1,4 +1,4 @@
-<div class="wrp">
+<div class="container">
   <div class="container">
     <div class="row">
       <div class="col-sm-7" >
@@ -16,9 +16,9 @@
             </h1>
             <form>
               <div class="form-group">
-                <input type="text" class="form-control" id="eventname" placeholder="Event Name" [(ngModel)]="Name" [ngModelOptions]="{standalone: true}">
+                <input type="text" class="form-control" id="eventName" placeholder="Event Name" [(ngModel)]="Name" [ngModelOptions]="{standalone: true}">
               </div>
-              <button type="submit" class="btn btn-primary btntext  buttoncrt1" (click)="createEvent()">Create Event</button>
+              <button type="submit" class="btn btn-primary btntext  createEvent" (click)="createEvent()">Create Event</button>
             </form>
           </div>
         </div>

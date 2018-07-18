@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import {QrService} from '../qr.service';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { MessagingService } from './messasing.service';
+import * as firebase from 'firebase';
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.component.html',

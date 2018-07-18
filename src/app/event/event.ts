@@ -1,5 +1,3 @@
-import {Time} from '@angular/common';
-// import {stringifyElement} from "@angular/platform-browser/testing/src/browser_util";
 
 export class Event {
   private eName: string; // event name
