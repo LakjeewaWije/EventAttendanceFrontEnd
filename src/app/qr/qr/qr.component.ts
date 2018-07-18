@@ -10,7 +10,7 @@ import * as firebase from 'firebase';
 })
 export class QrComponent implements OnInit {
   value;
-  qrPayload:any = {};
+  qrPayload: any = {};
   fcmToken = 'default';
 
   constructor(private qrservice: QrService, private route: ActivatedRoute , private http: HttpClient) {
