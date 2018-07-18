@@ -21,7 +21,7 @@ export class QrComponent implements OnInit {
   }
   ngOnInit(): void {
     this.setToken();
-    this.reloadthePage();
+    this.reloadPage();
   }
   setToken() {
     this.qrservice.setToken(localStorage.getItem('fcmToken')).subscribe(data => {
@@ -31,12 +31,13 @@ export class QrComponent implements OnInit {
       console.log(this.qrPayload.UUID);
       console.log(this.qrPayload.browserToken);
 
+      // tslint:disable-next-line:max-line-length
       this.value = '{' + '\n'  + '"eventId": ' + '"' + this.qrPayload.eventId + '"' + ',' + '\n' + '"eventName": ' + '"' +  this.qrPayload.eventName + '"' + ',' + '\n' + '"UUID": '   + '"' +
         this.qrPayload.UUID + '"' + ',' + '\n' + '"browserToken": ' + '"' + this.qrPayload.browserToken + '"' + '\n' + '}' ;
 
     });
   }
-  reloadthePage() {
+  reloadPage() {
     firebase.messaging().requestPermission().then(function() {
       console.log('Notification permission granted.');
     }).catch(function(err) {

@@ -12,9 +12,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class QrService {
   browserToken: string;
-  
   constructor(private http: HttpClient, private route: ActivatedRoute) {
-
   }
   // Retrieve Firebase Messaging object.
    messaging = firebase.messaging();
