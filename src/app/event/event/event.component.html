@@ -1,9 +1,9 @@
-<div class="container">
+
   <div class="container">
     <div class="row">
       <div class="col-sm-7" >
         <ul class="list-group ">
-          <li *ngFor="let event  of events" class="list-group-item divli" routerLink="/qrscan/{{event.eventId}}/{{event.eventName}}">
+          <li *ngFor="let event  of events" class="list-group-item event" routerLink="/qrscan/{{event.eventId}}/{{event.eventName}}">
             <span> {{ event.eventName }} </span>
           </li>
         </ul>
@@ -25,4 +25,4 @@
       </div>
     </div>
   </div>
-</div>
+
