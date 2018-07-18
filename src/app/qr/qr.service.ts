@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import 'firebase/app';
-import 'firebase/messaging';
+import * as firebase from 'firebase';
 import {HttpHeaders} from '@angular/common/http';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -19,13 +18,13 @@ export class QrService {
   }
   // Retrieve Firebase Messaging object.
    messaging = firebase.messaging();
-  setToken(token: string): Observable<string> {
+  setToken(token: string): Observable<any> {
      // this.messaging.usePublicVapidKey('BMsj59O8bkUhnr3OZmxkLx1gN-R78-BZ_TtLuPTHBLRJPD3Ed-zPrkfoRrsQ0sWpIVv2OxD04s2_PQZ7LPdKdok');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin': '*'
     });
-    return this.http.post<string>('http://192.168.8.104:9000/qr', {
+    return this.http.post<any>('http://192.168.8.104:9000/qr', {
       browserToken: token,
     }, {headers: headers}).pipe(
       tap((data: string) => {}),
