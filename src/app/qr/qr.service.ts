@@ -13,14 +13,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class QrService {
   browserToken: string;
-  app = firebase.initializeApp( {
-    apiKey: 'AIzaSyBwNA6TeFfLPsz2H6Xo4diVIvFOqPqIqwM',
-    authDomain: 'eventattendancefrontend.firebaseapp.com',
-    databaseURL: 'https://eventattendancefrontend.firebaseio.com',
-    projectId: 'eventattendancefrontend',
-    storageBucket: 'eventattendancefrontend.appspot.com',
-    messagingSenderId: '997776762015'
-  });
+  
   constructor(private http: HttpClient, private route: ActivatedRoute) {
 
   }
