@@ -10,27 +10,32 @@ import * as firebase from 'firebase';
   styleUrls: ['./event.component.css']
 })
 export class EventComponent implements OnInit {
-  constructor(private eventservice: EventService , private http: HttpClient, private route: ActivatedRoute) {
-  }
+
+
   name: string; // stores the event name
   events = []; // stores all event name returned by  getEvent method from event service
   fcmToken: string;
+
+  constructor(private eventService: EventService , private http: HttpClient, private route: ActivatedRoute) {
+  }
+
   /**
    * calling the create even method in event service
    * @constructor
    */
   createEvent() {
     console.log('1');
-    this.eventservice.createEvent(this.name);
+    this.eventService.createEvent(this.name);
     console.log('4');
-     this.events = this.eventservice.events;
+     this.events = this.eventService.events;
     console.log('5');
     this.name = null;
   }
+
   ngOnInit(): void {
     console.log('1');
-    this.events = this.eventservice.events;
-    this.eventservice.getEvents();
+    this.events = this.eventService.events;
+    this.eventService.getEvents();
     console.log('2');
     this.receiveToken();
   }
