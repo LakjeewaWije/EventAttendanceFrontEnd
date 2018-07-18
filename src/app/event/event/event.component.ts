@@ -12,7 +12,7 @@ import * as firebase from 'firebase';
 export class EventComponent implements OnInit {
   constructor(private eventservice: EventService , private http: HttpClient, private route: ActivatedRoute) {
   }
-   Name: string; // stores the event name
+  name: string; // stores the event name
   events = []; // stores all event name returned by  getEvent method from event service
   fcmToken: string;
   /**
@@ -21,11 +21,11 @@ export class EventComponent implements OnInit {
    */
   createEvent() {
     console.log('1');
-    this.eventservice.createEvent(this.Name);
+    this.eventservice.createEvent(this.name);
     console.log('4');
      this.events = this.eventservice.events;
     console.log('5');
-    this.Name = null;
+    this.name = null;
   }
   ngOnInit(): void {
     console.log('1');
