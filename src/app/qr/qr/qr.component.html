@@ -1,0 +1,33 @@
+<!--<div class="wrp">-->
+  <div class="container-fluid">
+    <div class="row topDiv">
+
+  </div>
+    <div class="container">
+    <div class="row ">
+      <div class="col-sm-3" >
+      </div>
+      <div class="col-sm-6" >
+        <div class="card">
+          <div class="card qrView" >
+            <div class="card-body mx-auto ">
+              <h1>To Attend the Event</h1>
+              <h6 class="stepDetail">1. Open the Mobile app</h6>
+              <h6 class="stepDetail">2. Click on an event you want to attend to</h6>
+              <h6 class="stepDetail">3. Point your phone to the screen to capture the   code</h6>
+              <div class="qrImage">
+              <ngx-qrcode  class="qr "
+                           [qrc-element-type]="elementType"
+                           [qrc-value] = "value">
+              </ngx-qrcode>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3" >
+      </div>
+    </div>
+    </div>
+  </div>
+

@@ -1,0 +1,61 @@
+.container{
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  height: 20rem;
+}
+
+.qrView{
+  background-color: rgba(255, 254, 253, 0.78);
+}
+
+.createEvent {
+  background-color: rgba(195, 13, 31, 0.95);
+  color: #ffffff;
+  border: 2px solid #af0615;
+}
+
+.createEvent:hover {
+  background-color: rgba(175, 17, 30, 0.4);
+  color: white;
+}
+
+.card{
+  height: 25rem;
+  box-shadow: 5px 10px 18px #888888;
+
+}
+.goback{
+   margin-top: 3rem;
+   margin-left: 110rem;
+ }
+#myProgress {
+  width: 100%;
+  background-color: grey;
+}
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}
+
+.topDiv{
+  height: 10rem;
+  background-color: rgba(195, 13, 31, 0.95);
+}
+.maindiv{
+  height: 25rem;
+}
+.stepDetail{
+
+}
+.qrImage{
+  width: 18rem;
+  box-shadow: 5px 10px 18px #888888;
+}
+
+h6{
+  color: #55636a;
+}
+h1{
+  font-family: 'Hammersmith One', sans-serif;
+}
