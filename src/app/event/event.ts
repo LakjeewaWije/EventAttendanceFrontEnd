@@ -9,11 +9,11 @@ export class Event {
   getEventName(): string {
     return this.eventName;
   }
-  setEventdate(): void {
+  setEventDate(): void {
     this.eventDate = new Date();
   }
   getEventDate(): string {
-    this.setEventdate();
+    this.setEventDate();
     // tslint:disable-next-line:max-line-length
     return this.eventDate.getUTCFullYear() + '-' + this.eventDate.getUTCMonth() + '-' + this.eventDate.getUTCDate() + ' ' + this.eventDate.getHours() + ':' + this.eventDate.getMinutes() + ':' + this.eventDate.getUTCSeconds();
   }
