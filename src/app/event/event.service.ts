@@ -11,7 +11,7 @@ export class EventService {
 
   constructor(private http: HttpClient) {
   }
-   event = new Event(); // instantiating the event class
+    event = new Event(); // instantiating the event class
     events = [];
 
   /**
@@ -26,9 +26,9 @@ export class EventService {
       'Access-Control-Allow-Origin': '*'
     });
     const req = this.http.post<any>('http://192.168.8.104:9000/event', {
-      eventName: this.event.getEName(),
+      eventName: this.event.getEventName(),
       eventDesc: 'lakiyaaaa event ',
-      eventDateTime: this.event.getEDateTime()
+      eventDateTime: this.event.getEventDate()
     }, {headers: headers}).subscribe(res => {
         console.log('2');
         const eventsFromResponse = res.data;
@@ -41,7 +41,7 @@ export class EventService {
         console.log('3');
       },
       err => {
-        console.log('Error occured');
+        console.log('Error occurred');
       }
     );
   }
@@ -65,9 +65,9 @@ export class EventService {
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
-          console.log('Client-side error occured.');
+          console.log('Client-side error occurred.');
         } else {
-          console.log('Server-side error occured.');
+          console.log('Server-side error occurred.');
         }
       }
     );

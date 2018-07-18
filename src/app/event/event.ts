@@ -1,20 +1,21 @@
 
 export class Event {
-  private eName: string; // event name
-  private eDate: Date; // event date object
-  private eDsc: string; // event description
+  private eventName: string; // event name
+  private eventDate: Date; // event date object
+  private eventDescription: string; // event description
   setEName(name: string): void {
-    this.eName = name;
+    this.eventName = name;
   }
-  getEName(): string {
-    return this.eName;
+  getEventName(): string {
+    return this.eventName;
   }
-  setEDateTime(): void {
-    this.eDate = new Date();
+  setEventdate(): void {
+    this.eventDate = new Date();
   }
-  getEDateTime(): string {
-    this.setEDateTime();
-    return this.eDate.getUTCFullYear() + '-' + this.eDate.getUTCMonth() + '-' + this.eDate.getUTCDate() + ' ' + this.eDate.getHours() + ':' + this.eDate.getMinutes() + ':' + this.eDate.getUTCSeconds();
+  getEventDate(): string {
+    this.setEventdate();
+    // tslint:disable-next-line:max-line-length
+    return this.eventDate.getUTCFullYear() + '-' + this.eventDate.getUTCMonth() + '-' + this.eventDate.getUTCDate() + ' ' + this.eventDate.getHours() + ':' + this.eventDate.getMinutes() + ':' + this.eventDate.getUTCSeconds();
   }
 }
 
