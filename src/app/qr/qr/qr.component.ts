@@ -1,9 +1,9 @@
+// Third Party Imports
 import { Component, OnInit} from '@angular/core';
 
+// App imports
 import {QrService} from '../qr.service';
 import {ActivatedRoute} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
-import * as firebase from 'firebase';
 
 
 @Component({
