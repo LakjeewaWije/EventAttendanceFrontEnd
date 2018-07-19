@@ -1,5 +1,7 @@
+// Third Party Imports
 import { TestBed, inject } from '@angular/core/testing';
 
+// App Service
 import { EventService } from './event.service';
 
 describe('EventService', () => {
