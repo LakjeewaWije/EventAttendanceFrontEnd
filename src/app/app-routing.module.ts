@@ -1,8 +1,13 @@
+// Third Party Imports
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {QrComponent} from './qr/qr/qr.component';
-import {EventComponent} from './event/event/event.component';
 import { CommonModule } from '@angular/common';
+
+// App Imports
+import {EventComponent} from './event/event/event.component';
+import {QrComponent} from './qr/qr/qr.component';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/eventmain', pathMatch: 'full' },
