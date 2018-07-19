@@ -19,7 +19,7 @@ export class EventComponent implements OnInit {
   events = []; // stores all event name returned by  getEvent method from event service
   fcmToken: string;
 
-  constructor(private eventService: EventService, private http: HttpClient, private route: ActivatedRoute) {
+  constructor(private eventService: EventService) {
   }
 
   /**
