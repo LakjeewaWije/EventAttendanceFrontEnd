@@ -1,8 +1,9 @@
+// Third Party Imports
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase';
 import {HttpHeaders} from '@angular/common/http';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import * as firebase from 'firebase';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
