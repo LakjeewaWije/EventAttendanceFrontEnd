@@ -1,5 +1,7 @@
+// Third Party Imports
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+// App Imports
 import { QrComponent } from './qr.component';
 
 describe('QrComponent', () => {

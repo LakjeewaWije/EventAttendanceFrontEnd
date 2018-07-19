@@ -1,13 +1,18 @@
+// Third Party Imports
 import { Component, OnInit} from '@angular/core';
-import {QrService} from '../qr.service';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import * as firebase from 'firebase';
+
+// App Imports
+import {QrService} from '../qr.service';
+
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.component.html',
   styleUrls: ['./qr.component.css']
 })
+
 export class QrComponent implements OnInit {
   value;
   qrPayload: any = {};
@@ -19,10 +24,12 @@ export class QrComponent implements OnInit {
       this.qrPayload.eventId  = params['eventId'];
     });
   }
+
   ngOnInit(): void {
     this.setToken();
     this.reloadPage();
   }
+
   setToken() {
     this.qrservice.setToken(localStorage.getItem('fcmToken')).subscribe(data => {
       console.log(data.data);
@@ -37,6 +44,7 @@ export class QrComponent implements OnInit {
 
     });
   }
+
   reloadPage() {
     firebase.messaging().requestPermission().then(function() {
       console.log('Notification permission granted.');
