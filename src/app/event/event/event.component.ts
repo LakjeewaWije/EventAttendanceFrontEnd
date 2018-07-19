@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import * as firebase from 'firebase';
 
 // App Imports
 import {EventService} from '../event.service';
@@ -32,7 +31,7 @@ export class EventComponent implements OnInit {
     this.events = this.eventService.events;
     this.eventService.getEvents();
     console.log('2');
-    this.receiveToken();
+    this.receiveFcmToken();
   }
 
   createEvent() {
@@ -43,25 +42,8 @@ export class EventComponent implements OnInit {
     console.log('5');
     this.name = null;
   }
-  receiveToken() {
-    firebase.messaging().requestPermission().then(function() {
-      console.log('Notification permission granted.');
-
-      firebase.messaging().getToken()
-        .then(function(currentToken) {
-          if (currentToken) {
-            localStorage.setItem('fcmToken', currentToken);
-            console.log(currentToken);
-          } else {
-            console.log('No Instance ID token available. Request permission to generate one.');
-          }
-        });
-    }).catch(function(err) {
-      console.log('Unable to get permission to notify.', err);
-    });
-    firebase.messaging().onMessage(function(payload) {
-      console.log('On message: ', payload);
-    });
+  receiveFcmToken() {
+    this.eventService.getFcmToken();
   }
 }
 

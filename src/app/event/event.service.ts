@@ -2,6 +2,7 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as firebase from 'firebase';
 
 // App Imports
 import {Event} from './event';
@@ -29,7 +30,8 @@ export class EventService {
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin': '*'
     });
-    const req = this.http.post<any>('http://192.168.8.104:9000/event', {
+
+    this.http.post<any>('http://192.168.8.104:9000/event', {
       eventName: this.event.getEventName(),
       eventDesc: 'lakiyaaaa event ',
       eventDateTime: this.event.getEventDate()
@@ -75,6 +77,28 @@ export class EventService {
         }
       }
     );
+  }
+
+  getFcmToken() {
+    firebase.messaging().requestPermission().then(function() {
+      console.log('Notification permission granted.');
+
+      firebase.messaging().getToken()
+        .then(function(currentToken) {
+          if (currentToken) {
+            localStorage.setItem('fcmToken', currentToken);
+            console.log(currentToken);
+          } else {
+            console.log('No Instance ID token available. Request permission to generate one.');
+          }
+        });
+    }).catch(function(err) {
+      console.log('Unable to get permission to notify.', err);
+    });
+    firebase.messaging().onMessage(function(payload) {
+      console.log('On message: ', payload);
+    });
+
   }
 }
 
