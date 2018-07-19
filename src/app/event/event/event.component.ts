@@ -1,8 +1,12 @@
+// Third Party Imports
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {EventService} from '../event.service';
 import { ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
+
+// App Imports
+import {EventService} from '../event.service';
+
 
 @Component({
   selector: 'app-event',
