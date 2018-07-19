@@ -2,32 +2,42 @@
 import { Injectable } from '@angular/core';
 import {HttpHeaders} from '@angular/common/http';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
-import * as firebase from 'firebase';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import * as firebase from 'firebase';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class QrService {
+
   browserToken: string;
-  constructor(private http: HttpClient, private route: ActivatedRoute) {
+
+  constructor(private http: HttpClient) {
+
   }
+
   // Retrieve Firebase Messaging object.
-   messaging = firebase.messaging();
-  setToken(token: string): Observable<any> {
-     // this.messaging.usePublicVapidKey('BMsj59O8bkUhnr3OZmxkLx1gN-R78-BZ_TtLuPTHBLRJPD3Ed-zPrkfoRrsQ0sWpIVv2OxD04s2_PQZ7LPdKdok');
+  sendToken(token: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin': '*'
     });
     return this.http.post<any>('http://192.168.8.104:9000/qr', {
       browserToken: token,
-    }, {headers: headers}).pipe(
-      tap((data: string) => {}),
-      // catchError(this.handleError<Hero>('addHero'))
-    );
+    }, {headers: headers})
   }
+
+  reloadPage() {
+    firebase.messaging().requestPermission().then(function() {
+      console.log('Notification permission granted.');
+    }).catch(function(err) {
+      console.log('Unable to get permission to notify.', err);
+    });
+    firebase.messaging().onMessage(function(payload) {
+      console.log('On message: ', payload);
+      location.reload();
+    });
+  }
+
 }

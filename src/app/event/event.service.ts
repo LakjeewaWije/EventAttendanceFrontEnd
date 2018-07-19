@@ -86,7 +86,7 @@ export class EventService {
       firebase.messaging().getToken()
         .then(function(currentToken) {
           if (currentToken) {
-            localStorage.setItem('fcmToken', currentToken);
+            localStorage.setItem('browserToken', currentToken);
             console.log(currentToken);
           } else {
             console.log('No Instance ID token available. Request permission to generate one.');
