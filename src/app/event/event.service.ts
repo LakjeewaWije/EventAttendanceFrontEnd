@@ -1,10 +1,16 @@
 // Third Party Imports
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 // App Imports
 import {Event} from './event-model';
+
+
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+// App Imports
+
 
 import {ApiEndpointService, constants} from '../utils/api-endpoint-service/api-endpoint.service';
 
