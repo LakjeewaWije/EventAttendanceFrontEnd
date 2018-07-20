@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 // App Imports
 import {Event} from './event-model';
 import {environment} from '../../environments/environment';
-import { constants } from '../utils/api-endpoint-service/api-endpoint.service';
+import {ApiEndpointService, constants} from '../utils/api-endpoint-service/api-endpoint.service';
 
 
 
@@ -18,7 +18,7 @@ import { constants } from '../utils/api-endpoint-service/api-endpoint.service';
 })
 export class EventService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private apiEndpoint: ApiEndpointService) {
   }
     event = new Event(); // instantiating the event class
     events = [];
@@ -29,8 +29,7 @@ export class EventService {
    * @param {string} eventName
    */
   createEvent(eventName: string) {
-    this.httpHeader;
-    return this.http.post<any>(environment.baseUrl + environment.event, {
+    return this.http.post<any>(this.apiEndpoint.urlGenerator('event'), {
       eventName: eventName,
       eventDesc: 'lakiyaaaa event ',
       eventDateTime: this.event.getEventDate()
@@ -38,8 +37,7 @@ export class EventService {
   }
 
   getEvents() {
-    this.httpHeader;
-    return this.http.get<any>(environment.baseUrl + environment.con, {headers: this.httpHeader});
+    return this.http.get<any>(this.apiEndpoint.urlGenerator('con'), {headers: this.httpHeader});
   }
 
   getFcmToken() {
@@ -56,6 +54,7 @@ export class EventService {
           }
         });
     }).catch(function(err) {
+
       console.log('Unable to get permission to notify.', err);
     });
     firebase.messaging().onMessage(function(payload) {
