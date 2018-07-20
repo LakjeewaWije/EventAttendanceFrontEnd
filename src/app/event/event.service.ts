@@ -7,7 +7,7 @@ import * as firebase from 'firebase';
 // App Imports
 import {Event} from './event-model';
 import {environment} from '../../environments/environment';
-import { constants } from '../api-endpoint.service';
+import { constants } from '../utils/api-endpoint-service/api-endpoint.service';
 
 
 

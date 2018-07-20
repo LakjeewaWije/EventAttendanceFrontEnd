@@ -5,7 +5,8 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import * as firebase from 'firebase';
 import {environment} from '../../environments/environment';
-import {constants} from '../api-endpoint.service';
+import {constants} from '../utils/api-endpoint-service/api-endpoint.service';
+import { ApiEndpointService } from '../utils/api-endpoint-service/api-endpoint.service';
 
 
 @Injectable({

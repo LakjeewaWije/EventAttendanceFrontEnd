@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpHeaders} from '@angular/common/http';
-import {environment} from '../environments/environment';
+import {environment} from '../../../environments/environment';
 
 export const constants = {
   baseUrl : 'http://192.168.8.104:9000/',
@@ -19,7 +19,8 @@ export const constants = {
 export class ApiEndpointService {
 
   private urlEndPoints: object = {
-    'event': '/event',
+    'baseUrl' : 'http://192.168.8.104:9000',
+    'event' : '/event',
     'con' : '/con',
     'qr' : '/qr'
   };
