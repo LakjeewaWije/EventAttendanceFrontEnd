@@ -95,8 +95,9 @@ export class EventService {
     firebase.messaging().onMessage(function(payload) {
       console.log('On message: ', payload);
     });
-
   }
 }
+
+
 
 

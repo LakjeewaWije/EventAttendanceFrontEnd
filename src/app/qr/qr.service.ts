@@ -1,12 +1,10 @@
 // Third Party Imports
 import { Injectable } from '@angular/core';
-import {HttpHeaders} from '@angular/common/http';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import * as firebase from 'firebase';
 import {environment} from '../../environments/environment';
 import {constants} from '../utils/api-endpoint-service/api-endpoint.service';
-import { ApiEndpointService } from '../utils/api-endpoint-service/api-endpoint.service';
 
 
 @Injectable({
@@ -23,13 +21,11 @@ export class QrService {
 
   // Retrieve Firebase Messaging object.
   sendToken(token: string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Origin': '*'
-    });
+
+    this.httpHeader;
     return this.http.post<any>(environment.baseUrl + environment.qr, {
       browserToken: token,
-    }, {headers: headers});
+    }, {headers: this.httpHeader});
   }
 
   reloadPage() {

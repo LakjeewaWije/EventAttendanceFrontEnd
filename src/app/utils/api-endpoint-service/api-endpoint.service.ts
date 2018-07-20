@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpHeaders} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
 
 export const constants = {
-  baseUrl : 'http://192.168.8.104:9000/',
+  baseUrl : 'http://192.168.8.104:9000',
 
   headers : new HttpHeaders({
   'Content-Type': 'application/json; charset=utf-8',
@@ -12,11 +11,14 @@ export const constants = {
 
 };
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class ApiEndpointService {
+
+  constructor() {
+
+  }
 
   private urlEndPoints: object = {
     'baseUrl' : 'http://192.168.8.104:9000',
@@ -26,8 +28,6 @@ export class ApiEndpointService {
   };
 
   public urlGenerator(key) {
-    return `${environment.baseUrl}${this.urlEndPoints[key]}`;
+    return `${this.urlEndPoints['baseUrl']}${this.urlEndPoints[key]}`;
   }
-
-  constructor() { }
 }
