@@ -1,12 +1,13 @@
 // Third Party Imports
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
-
 // App Imports
 import {Event} from './event-model';
-import { constants } from '../utils/api-endpoint-service/api-endpoint.service';
-import { ApiEndpointService } from '../utils/api-endpoint-service/api-endpoint.service';
+
+import {ApiEndpointService, constants} from '../utils/api-endpoint-service/api-endpoint.service';
+
 
 
 @Injectable({
@@ -25,53 +26,15 @@ export class EventService {
    * @param {string} eventName
    */
   createEvent(eventName: string) {
-    this.event.setEName(eventName);
-
-    this.httpHeader;
-    this.http.post<any>(this.apiEndpoint.urlGenerator('event'), {
-      eventName: this.event.getEventName(),
+    return this.http.post<any>(this.apiEndpoint.urlGenerator('event'), {
+      eventName: eventName,
       eventDesc: 'lakiyaaaa event ',
       eventDateTime: this.event.getEventDate()
-    }, {headers: this.httpHeader}).subscribe(res => {
-        console.log('2');
-        const eventsFromResponse = res.data;
-        console.log(eventsFromResponse);
-        this.events.length = 0;
-        for (let i = 0; i < eventsFromResponse.length; i++) {
-          this.events.push(eventsFromResponse[i]);
-        }
-        console.log(this.events);
-        console.log('3');
-      },
-      err => {
-        console.log('Error occurred');
-      }
-    );
+    }, {headers: this.httpHeader});
   }
 
   getEvents() {
-
-    this.httpHeader;
-    this.http.get<any>(this.apiEndpoint.urlGenerator('con'), {headers: this.httpHeader}).subscribe(
-      data => {
-        console.log('3');
-        const eventsFromResponse = data.data;
-        // console.log(eventsFromResponse);
-        this.events.length = 0;
-        for (let i = 0; i < eventsFromResponse.length; i++) {
-          this.events.push(eventsFromResponse[i]);
-          console.log('4');
-        }
-        // console.log(this.events);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('Client-side error occurred.');
-        } else {
-          console.log('Server-side error occurred.');
-        }
-      }
-    );
+    return this.http.get<any>(this.apiEndpoint.urlGenerator('con'), {headers: this.httpHeader});
   }
 
   getFcmToken() {
@@ -88,14 +51,14 @@ export class EventService {
           }
         });
     }).catch(function(err) {
+
       console.log('Unable to get permission to notify.', err);
     });
     firebase.messaging().onMessage(function(payload) {
       console.log('On message: ', payload);
     });
+
   }
 }
-
-
 
 

@@ -20,14 +20,14 @@ export class ApiEndpointService {
 
   }
 
-  private urlEndPoints: object = {
+  private urlEndPoints: any = {
     'baseUrl' : 'http://192.168.8.104:9000',
     'event' : '/event',
     'con' : '/con',
     'qr' : '/qr'
   };
 
-  public urlGenerator(key) {
+  public urlGenerator(key): any {
     return `${this.urlEndPoints['baseUrl']}${this.urlEndPoints[key]}`;
   }
 }
