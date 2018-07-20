@@ -16,7 +16,7 @@ export class EventComponent implements OnInit {
 
 
   name: string; // stores the event name
-  events = []; // stores all event name returned by  getEvent method from event service
+  events: object[] = []; // stores all event name returned by  getEvent method from event service
   fcmToken: string;
 
   constructor(private eventService: EventService) {
@@ -24,7 +24,6 @@ export class EventComponent implements OnInit {
 
   /**
    * calling the create even method in event service
-   * @constructor
    */
   ngOnInit(): void {
     console.log('1');

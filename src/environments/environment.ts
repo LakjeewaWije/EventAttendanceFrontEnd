@@ -12,9 +12,12 @@ export const environment = {
     projectId: 'event-attendance-54b25',
     storageBucket: 'event-attendance-54b25.appspot.com',
     messagingSenderId: '86891543279'
-  }
+  },
 
-
+  baseUrl : 'http://192.168.8.104:9000/',
+  con : 'con',
+  event : 'event',
+  qr : 'qr'
 };
 
 /*

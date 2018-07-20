@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 
 // App Imports
-import {Event} from './event';
+import {Event} from './event-model';
 import {environment} from '../../environments/environment';
-import {baseUrl, headers} from '../api-endpoint.service';
+import { constants } from '../api-endpoint.service';
 
 
 
@@ -20,7 +20,7 @@ export class EventService {
   }
     event = new Event(); // instantiating the event class
     events = [];
-    httpHeader = headers;
+    httpHeader = constants.headers;
 
   /**
    * method to create an event and save that event to event names array
@@ -30,7 +30,7 @@ export class EventService {
     this.event.setEName(eventName);
 
     this.httpHeader;
-    this.http.post<any>(baseUrl + 'event', {
+    this.http.post<any>(environment.baseUrl + environment.event, {
       eventName: this.event.getEventName(),
       eventDesc: 'lakiyaaaa event ',
       eventDateTime: this.event.getEventDate()
@@ -54,7 +54,7 @@ export class EventService {
   getEvents() {
 
     this.httpHeader;
-    this.http.get<any>(baseUrl + 'con', {headers: this.httpHeader}).subscribe(
+    this.http.get<any>(environment.baseUrl + environment.con, {headers: this.httpHeader}).subscribe(
       data => {
         console.log('3');
         const eventsFromResponse = data.data;

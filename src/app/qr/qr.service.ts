@@ -4,6 +4,8 @@ import {HttpHeaders} from '@angular/common/http';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import * as firebase from 'firebase';
+import {environment} from '../../environments/environment';
+import {constants} from '../api-endpoint.service';
 
 
 @Injectable({
@@ -12,6 +14,7 @@ import * as firebase from 'firebase';
 export class QrService {
 
   browserToken: string;
+  httpHeader = constants.headers;
 
   constructor(private http: HttpClient) {
 
@@ -23,9 +26,9 @@ export class QrService {
       'Content-Type': 'application/json; charset=utf-8',
       'Access-Control-Allow-Origin': '*'
     });
-    return this.http.post<any>('http://192.168.8.104:9000/qr', {
+    return this.http.post<any>(environment.baseUrl + environment.qr, {
       browserToken: token,
-    }, {headers: headers})
+    }, {headers: headers});
   }
 
   reloadPage() {
