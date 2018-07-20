@@ -12,13 +12,15 @@ import { EventModule } from './event/event.module';
 import { EventComponent } from './event/event/event.component';
 import * as firebase from 'firebase';
 import { QrModule } from './qr/qr.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 firebase.initializeApp(environment.config);
 
 @NgModule({
   declarations: [
     AppComponent,
-    EventComponent
+    EventComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
