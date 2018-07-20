@@ -1,14 +1,12 @@
 // Third Party Imports
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 
 // App Imports
 import {Event} from './event-model';
-import {environment} from '../../environments/environment';
 import { constants } from '../utils/api-endpoint-service/api-endpoint.service';
-
+import { ApiEndpointService } from '../utils/api-endpoint-service/api-endpoint.service';
 
 
 @Injectable({
@@ -16,7 +14,7 @@ import { constants } from '../utils/api-endpoint-service/api-endpoint.service';
 })
 export class EventService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private apiEndpoint: ApiEndpointService) {
   }
     event = new Event(); // instantiating the event class
     events = [];
@@ -30,7 +28,7 @@ export class EventService {
     this.event.setEName(eventName);
 
     this.httpHeader;
-    this.http.post<any>(environment.baseUrl + environment.event, {
+    this.http.post<any>(this.apiEndpoint.urlGenerator('event'), {
       eventName: this.event.getEventName(),
       eventDesc: 'lakiyaaaa event ',
       eventDateTime: this.event.getEventDate()
@@ -54,7 +52,7 @@ export class EventService {
   getEvents() {
 
     this.httpHeader;
-    this.http.get<any>(environment.baseUrl + environment.con, {headers: this.httpHeader}).subscribe(
+    this.http.get<any>(this.apiEndpoint.urlGenerator('con'), {headers: this.httpHeader}).subscribe(
       data => {
         console.log('3');
         const eventsFromResponse = data.data;

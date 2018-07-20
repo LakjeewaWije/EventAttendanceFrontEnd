@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import * as firebase from 'firebase';
 import {environment} from '../../environments/environment';
 import {constants} from '../utils/api-endpoint-service/api-endpoint.service';
+import { ApiEndpointService } from '../utils/api-endpoint-service/api-endpoint.service';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class QrService {
   browserToken: string;
   httpHeader = constants.headers;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private apiEndpoints: ApiEndpointService) {
 
   }
 
@@ -23,7 +24,7 @@ export class QrService {
   sendToken(token: string): Observable<any> {
 
     this.httpHeader;
-    return this.http.post<any>(environment.baseUrl + environment.qr, {
+    return this.http.post<any>(this.apiEndpoints.urlGenerator('qr'), {
       browserToken: token,
     }, {headers: this.httpHeader});
   }
