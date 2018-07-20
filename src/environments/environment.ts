@@ -13,6 +13,8 @@ export const environment = {
     storageBucket: 'event-attendance-54b25.appspot.com',
     messagingSenderId: '86891543279'
   }
+
+
 };
 
 /*

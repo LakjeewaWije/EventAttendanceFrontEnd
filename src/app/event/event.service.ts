@@ -6,6 +6,8 @@ import * as firebase from 'firebase';
 
 // App Imports
 import {Event} from './event';
+import {environment} from '../../environments/environment';
+import {baseUrl, headers} from '../api-endpoint.service';
 
 
 
@@ -18,6 +20,7 @@ export class EventService {
   }
     event = new Event(); // instantiating the event class
     events = [];
+    httpHeader = headers;
 
   /**
    * method to create an event and save that event to event names array
@@ -26,16 +29,12 @@ export class EventService {
   createEvent(eventName: string) {
     this.event.setEName(eventName);
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Origin': '*'
-    });
-
-    this.http.post<any>('http://192.168.8.104:9000/event', {
+    this.httpHeader;
+    this.http.post<any>(baseUrl + 'event', {
       eventName: this.event.getEventName(),
       eventDesc: 'lakiyaaaa event ',
       eventDateTime: this.event.getEventDate()
-    }, {headers: headers}).subscribe(res => {
+    }, {headers: this.httpHeader}).subscribe(res => {
         console.log('2');
         const eventsFromResponse = res.data;
         console.log(eventsFromResponse);
@@ -53,11 +52,9 @@ export class EventService {
   }
 
   getEvents() {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Origin': '*'
-    });
-    this.http.get<any>('http://192.168.8.104:9000/con', {headers: headers}).subscribe(
+
+    this.httpHeader;
+    this.http.get<any>(baseUrl + 'con', {headers: this.httpHeader}).subscribe(
       data => {
         console.log('3');
         const eventsFromResponse = data.data;
