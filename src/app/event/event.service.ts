@@ -31,7 +31,7 @@ export class EventService {
     return this.http.post<any>(this.apiEndpoint.urlGenerator('event'), {
       eventName: eventName,
       eventDesc: 'lakiyaaaa event ',
-      eventDateTime: this.event.getEventDate()
+      eventDateTime: this.event.getEventDate(),
     }, {headers: this.httpHeader});
   }
 
@@ -46,7 +46,7 @@ export class EventService {
       firebase.messaging().getToken()
         .then(function(currentToken) {
           if (currentToken) {
-            localStorage.setItem('browserToken', currentToken);
+            localStorage.setItem('fcmToken', currentToken);
             console.log(currentToken);
           } else {
             console.log('No Instance ID token available. Request permission to generate one.');
