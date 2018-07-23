@@ -20,7 +20,8 @@ firebase.initializeApp(environment.config);
   declarations: [
     AppComponent,
     EventComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ExternalUrlDirective
   ],
   imports: [
     BrowserModule,

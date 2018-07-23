@@ -1,6 +1,6 @@
 // Third Party Imports
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {ActivatedRouteSnapshot, RouterModule, Routes} from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 // App Imports
@@ -14,10 +14,12 @@ const routes: Routes = [
   { path: '', redirectTo: '/eventmain', pathMatch: 'full' },
   { path: 'eventmain', component: EventComponent },
   { path: 'qrscan/:eventId/:eventName', component: QrComponent },
-  {path: '**', component: NotFoundComponent }
+  {path: '**', component: NotFoundComponent },
+
 ];
 
 @NgModule({
+
   imports: [
     RouterModule.forRoot(routes),
     CommonModule
