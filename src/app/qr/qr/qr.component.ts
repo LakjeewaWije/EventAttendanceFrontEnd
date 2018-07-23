@@ -16,31 +16,59 @@ export class QrComponent implements OnInit {
   value;
   qrPayload: any = {};
   fcmToken = 'default';
-
+  eventName: any;
   constructor(private qrService: QrService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.qrPayload.eventName = params['eventName'];
       this.qrPayload.eventId = params['eventId'];
+      this.eventName = params['eventName'];
     });
   }
 
   ngOnInit(): void {
-    this.setToken();
+    this.generateQR();
+    // document.getElementById('kliqlogo').style.display = 'block';
     this.qrService.reloadPage();
   }
 
-  setToken() {
-    this.qrService.sendToken(localStorage.getItem('fcmToken')).subscribe(data => {
-      console.log(data.data);
-      this.qrPayload.UUID = data.data.uuid;
-      this.qrPayload.browserToken = data.data.browserToken;
-      console.log(this.qrPayload.UUID);
-      console.log(this.qrPayload.browserToken);
 
-      // tslint:disable-next-line:max-line-length
-      this.value = '{' + '\n' + '"eventId": ' + '"' + this.qrPayload.eventId + '"' + ',' + '\n' + '"eventName": ' + '"' + this.qrPayload.eventName + '"' + ',' + '\n' + '"UUID": ' + '"' +
-        this.qrPayload.UUID + '"' + ',' + '\n' + '"browserToken": ' + '"' + this.qrPayload.browserToken + '"' + '\n' + '}';
-    });
+  /**
+   * catch the returned response from qr service and behaves accordingly for the success and error
+   */
+  generateQR() {
+    this.qrService.generateQR(localStorage.getItem('fcmToken')).subscribe(
+      res => {
+        setTimeout(() => {
+          document.getElementById('ld1').style.display = 'none';
+          document.getElementById('kliqlogo').style.display = 'block';
+          this.generateQROnresponseSuccess(res);
+        }, 2000);
+        document.getElementById('kliqlogo').style.display = 'none';
+      },
+      err => {
+        this.generateQROnresponseError(err);
+      }
+    );
+  }
+
+  /**
+   * behaves to the successful response from generateQR request
+   * @param res
+   */
+  generateQROnresponseSuccess(res: any): void {
+  this.qrPayload.UUID = res.data.uuid;
+  this.qrPayload.browserToken = res.data.browserToken;
+  this.value = '{' + '\n' + '"eventId": ' + '"' + this.qrPayload.eventId + '"' + ',' + '\n' + '"eventName": ' + '"' + this.qrPayload.eventName + '"' + ',' + '\n' + '"uuid": ' + '"' +
+  this.qrPayload.UUID + '"' + ',' + '\n' + '"browserToken": ' + '"' + this.qrPayload.browserToken + '"' + '\n' + '}';
+  }
+
+  /**
+   * behaves to error response from generateQR request
+   * @param {string} error
+   */
+  generateQROnresponseError(error: string): void {
+    console.log(error);
   }
 }
+
 
