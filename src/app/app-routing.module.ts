@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/eventmain', pathMatch: 'full' },
   { path: 'eventmain', component: EventComponent },
   { path: 'qrscan/:eventId/:eventName', component: QrComponent },
-  { path: 'notfound', component: NotFoundComponent}
+  {path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
