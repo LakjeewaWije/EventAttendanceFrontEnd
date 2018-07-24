@@ -1,32 +1,57 @@
 <!--<div class="wrp">-->
   <div class="container-fluid">
     <div class="row topDiv">
-
-  </div>
+      <!--<img src="https://seeklogo.com/images/S/snapchat-ghost-logo-B618EE0704-seeklogo.com.png" class="divtopimage" >-->
+      <!--<div class="divtoplogotext">-->
+        <!--Kliq-->
+      <!--</div>-->
+    </div>
     <div class="container">
     <div class="row ">
-      <div class="col-sm-3" >
-      </div>
-      <div class="col-sm-6" >
-        <div class="card">
-          <div class="card qrView" >
-            <div class="card-body mx-auto ">
-              <h1>To Attend the Event</h1>
-              <h6 class="stepDetail">1. Open the Mobile app</h6>
-              <h6 class="stepDetail">2. Click on an event you want to attend to</h6>
-              <h6 class="stepDetail">3. Point your phone to the screen to capture the   code</h6>
-              <div class="qrImage">
-              <ngx-qrcode  class="qr "
-                           [qrc-element-type]="value"
-                           [qrc-value] = "value">
-              </ngx-qrcode>
+      <div class="col-md-1"></div>
+      <div class="col-md-10" >
+          <div class="card view-qr" >
+            <div class="card-body">
+              <div class="row ">
+                <div class="col-md-7" >
+                      <h4>Participants,please check-in to the event here</h4>
+                      <h1 style="color: #7503dc">{{ eventName }}</h1>
+                  <div class="stepDetail">
+                      1. Open kliq App on your phone<br>
+                      2. Tap Menu <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/768px-Hamburger_icon.svg.png" class="iconimg"> and select <img src="https://png.icons8.com/metro/1600/checked-checkbox.png" class="iconimg"> Happening<br>
+                      3. Choose the event on the Screen<br>
+                      4. Tap to open the QR code on Event<br>
+                      5. Point your phone to the screen to capture the code
+                  </div>
+                  <div class="rowbethelp">
+                    <a href="#" style="color: #b178ef">Need help to get started?</a>
+                  </div>
+                </div>
+                <div class="col-md-5" >
+                  <div class="qrImage ">
+                    <div class="qrImage">
+                      <img src="https://seeklogo.com/images/S/snapchat-ghost-logo-B618EE0704-seeklogo.com.png" class="qrontopimg" id="kliqlogo" >
+                    </div>
+                    <ngx-qrcode  class="qr"
+                                 [qrc-element-type]="value"
+                                 [qrc-value] = "value" >
+                    </ngx-qrcode>
+                    <div class="row">
+                      <div class="col-md-4" >
+                      </div>
+                      <div class="col-md-4 rowbet" >
+                      <div class="loader" id="ld1" ></div>
+                    </div>
+                      <div class="col-md-4" >
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-sm-3" >
-      </div>
+      <div class="col-md-1"></div>
     </div>
     </div>
   </div>

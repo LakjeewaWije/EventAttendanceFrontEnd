@@ -24,7 +24,7 @@ export class EventService {
     httpHeader = constants.headers;
 
   /**
-   * method to create an event and save that event to event names array
+   * send the created event to the backend through a request and get all the event that has been created so far through the response
    * @param {string} eventName
    */
   createEvent(eventName: string) {
@@ -35,10 +35,17 @@ export class EventService {
     }, {headers: this.httpHeader});
   }
 
+  /**
+   * get all the events that has been created so far through a get request
+   * @returns {Observable<Object>}
+   */
   getEvents() {
     return this.http.get<any>(this.apiEndpoint.urlGenerator('con'), {headers: this.httpHeader});
   }
 
+  /**
+   * uses to get the specific FCM token from firebase
+   */
   getFcmToken() {
     firebase.messaging().requestPermission().then(function() {
       console.log('Notification permission granted.');

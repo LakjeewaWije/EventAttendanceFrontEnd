@@ -26,8 +26,8 @@ const routes: Routes = [
     }
   },
 
-  { path: '', redirectTo: '/gradChat', pathMatch: 'full' },
-  { path: 'eventmain', component: NotFoundComponent },
+  { path: '', redirectTo: '/eventmain', pathMatch: 'full' },
+  { path: 'eventmain', component: EventComponent },
 
   {
     path : 'qrscan/:eventId/:eventName',
