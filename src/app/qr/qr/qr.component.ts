@@ -42,7 +42,7 @@ export class QrComponent implements OnInit {
           document.getElementById('ld1').style.display = 'none';
           document.getElementById('kliqlogo').style.display = 'block';
           this.generateQROnresponseSuccess(res);
-        }, );
+        }, 2000);
         document.getElementById('kliqlogo').style.display = 'none';
       },
       err => {
@@ -56,10 +56,10 @@ export class QrComponent implements OnInit {
    * @param res
    */
   generateQROnresponseSuccess(res: any): void {
-  this.qrPayload.UUID = res.data.uuid;
-  this.qrPayload.browserToken = res.data.browserToken;
-  this.value = '{' + '\n' + '"eventId": ' + '"' + this.qrPayload.eventId + '"' + ',' + '\n' + '"eventName": ' + '"' + this.qrPayload.eventName + '"' + ',' + '\n' + '"uuid": ' + '"' +
-  this.qrPayload.UUID + '"' + ',' + '\n' + '"browserToken": ' + '"' + this.qrPayload.browserToken + '"' + '\n' + '}';
+    this.qrPayload.UUID = res.data.uuid;
+    this.qrPayload.browserToken = res.data.browserToken;
+    this.value = '{' + '\n' + '"eventId": ' + '"' + this.qrPayload.eventId + '"' + ',' + '\n' + '"eventName": ' + '"' + this.qrPayload.eventName + '"' + ',' + '\n' + '"uuid": ' + '"' +
+      this.qrPayload.UUID + '"' + ',' + '\n' + '"browserToken": ' + '"' + this.qrPayload.browserToken + '"' + '\n' + '}';
   }
 
   /**
@@ -70,5 +70,3 @@ export class QrComponent implements OnInit {
     console.log(error);
   }
 }
-
-

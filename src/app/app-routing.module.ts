@@ -22,9 +22,14 @@ const routes: Routes = [
     }
   },
 
+
   // { path: '', redirectTo: '/gradchat', pathMatch: 'full' },
 
   // { path: 'eventmain', component: EventComponent },
+
+  { path: '', redirectTo: '/eventmain', pathMatch: 'full' },
+  { path: 'eventmain', component: EventComponent },
+
 
   {
     path : 'qrscan/:eventId/:eventName',
@@ -41,8 +46,7 @@ const routes: Routes = [
   providers: [
     {
       provide: 'externalUrlRedirectResolver',
-      useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) =>
-      {
+      useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
         window.location.href = (route.data as any).externalUrl;
       }
     },
