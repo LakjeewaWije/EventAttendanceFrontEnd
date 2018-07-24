@@ -7,16 +7,12 @@ import { CommonModule } from '@angular/common';
 import {EventComponent} from './event/event/event.component';
 import {QrComponent} from './qr/qr/qr.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {AuthGuardService} from './qr/auth-guard.service';
-
-
-
-
+import {AuthGuardService} from './qr/route-guard';
 
 const routes: Routes = [
 
   {
-    path: 'gradChat',
+    path: '',
     component: EventComponent,
     resolve: {
       url: 'externalUrlRedirectResolver'
@@ -26,8 +22,9 @@ const routes: Routes = [
     }
   },
 
-  { path: '', redirectTo: '/eventmain', pathMatch: 'full' },
-  { path: 'eventmain', component: EventComponent },
+  // { path: '', redirectTo: '/gradchat', pathMatch: 'full' },
+
+  // { path: 'eventmain', component: EventComponent },
 
   {
     path : 'qrscan/:eventId/:eventName',

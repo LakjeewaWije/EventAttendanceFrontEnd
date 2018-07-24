@@ -13,7 +13,7 @@ import { EventComponent } from './event/event/event.component';
 import * as firebase from 'firebase';
 import { QrModule } from './qr/qr.module';
 import { NotFoundComponent } from './not-found/not-found.component';
-import {AuthGuardService} from './qr/auth-guard.service';
+import {AuthGuardService} from './qr/route-guard';
 
 
 
