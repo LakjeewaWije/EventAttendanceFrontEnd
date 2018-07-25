@@ -1,6 +1,14 @@
 <!--<div class="wrp">-->
+
+<p id="overlayMessage">Cannot display Console on this screen size</p>
+
 <div class="container-fluid">
   <div class="row topDiv">
+
+    <div class="logo">
+      <!--<img src="../../../assets/images/kliq-logo.png">-->
+      <h2>Kliq</h2>
+    </div>
     <!--<img src="https://seeklogo.com/images/S/snapchat-ghost-logo-B618EE0704-seeklogo.com.png" class="divtopimage" >-->
     <!--<div class="divtoplogotext">-->
     <!--Kliq-->
@@ -9,32 +17,38 @@
   <div class="container">
     <div class="row">
       <div class="col-md-1"></div>
-      <div class="col-md-10" >
+      <div class="col-12 col-sm-12 col-md-12 col-lg-10">
         <div class="card view-qr">
           <div class="card-body">
             <div class="row">
-              <div class="col-md-7">
-                <h4>Participants,please check-in to the event here</h4>
-                <h1 style="color: #7503dc">{{ eventName }}</h1>
-                <div class="stepDetail">
-                  1. Open kliq App on your phone<br>
-                  2. Tap Menu <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/768px-Hamburger_icon.svg.png" class="iconimg"> and select <img src="https://png.icons8.com/metro/1600/checked-checkbox.png" class="iconimg"> Happening<br>
-                  3. Choose the event on the Screen<br>
-                  4. Tap to open the QR code on Event<br>
-                  5. Point your phone to the screen to capture the code
+              <div class="col-lg-12">
+                <h4 class="checkInMessage">Participants, Please Check-in To The Event Here</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <h1 class="eventName">{{ eventName }}</h1>
+                <div class="stepDetails">
+                  <p>1. Open kliq App on your phone</p>
+                  <p>2. Tap Menu <img  class="icons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/768px-Hamburger_icon.svg.png"> and select <img  class="icons" src="https://png.icons8.com/metro/1600/checked-checkbox.png"> Happening</p>
+                  <p>3. Choose the event on the Screen</p>
+                  <p>4. Tap to open the QR code on Event</p>
+                  <p>5. Point your phone to the screen to capture the code</p>
                 </div>
-                <div class="rowbethelp">
-                  <a href="#" style="color: #b178ef">Need help to get started?</a>
+                <div class="getHelp">
+                  <a href="#">Need help to get started?</a>
                 </div>
               </div>
               <div class="col-md-5">
                 <div class="qrImage">
-                  <img src="https://seeklogo.com/images/S/snapchat-ghost-logo-B618EE0704-seeklogo.com.png" class="qrontopimg" id="kliqlogo" >
+                  <img src="https://seeklogo.com/images/S/snapchat-ghost-logo-B618EE0704-seeklogo.com.png" class="logoOnQr" id="kliqlogo" >
                   <ngx-qrcode  class="qr"
                                [qrc-element-type]="value"
                                [qrc-value] = "value" >
+
                   </ngx-qrcode>
                   <div class="loader" id="ld1" ></div>
+
                 </div>
               </div>
             </div>

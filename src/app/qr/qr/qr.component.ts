@@ -31,7 +31,6 @@ export class QrComponent implements OnInit {
     this.qrService.reloadPage();
   }
 
-
   /**
    * catch the returned response from qr service and behaves accordingly for the success and error
    */
@@ -42,7 +41,7 @@ export class QrComponent implements OnInit {
           document.getElementById('ld1').style.display = 'none';
           document.getElementById('kliqlogo').style.display = 'block';
           this.generateQROnresponseSuccess(res);
-        }, 2000);
+        }, 500);
         document.getElementById('kliqlogo').style.display = 'none';
       },
       err => {
