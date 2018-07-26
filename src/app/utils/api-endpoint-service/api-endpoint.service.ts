@@ -27,7 +27,7 @@ export class ApiEndpointService {
 
 
 
-    'baseUrl' : 'http://192.168.8.102:9000',
+    'baseUrl' : 'http://192.168.8.105:9000',
     'event' : '/event',
     'con' : '/con',
     'qr' : '/qr'
