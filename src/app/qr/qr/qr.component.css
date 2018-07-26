@@ -206,12 +206,12 @@ h1{
 
 /*For screen size 965px and lower*/
 @media (max-width:767px)  {
-  /*.container-fluid {*/
-  /*display: none;*/
-  /*}*/
-  /*.overlayMessage {*/
-    /*display: block;*/
-  /*}*/
+  .container-fluid {
+  display: none;
+  }
+  .overlayMessage {
+    display: block;
+  }
 }
 
 /*@media (min-width:700px)  {*/
