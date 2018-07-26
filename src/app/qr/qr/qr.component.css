@@ -235,5 +235,15 @@ h1{
   padding-bottom: 44px;
 }
 
+#appLogo {
+  height: 15px;
+  width: 15px;
+  margin-right: 7px;
+}
+
+.iphone {
+  margin-left: 40px;
+}
+
 
 
