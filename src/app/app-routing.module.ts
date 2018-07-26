@@ -8,6 +8,7 @@ import {EventComponent} from './event/event/event.component';
 import {QrComponent} from './qr/qr/qr.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {AuthGuardService} from './qr/route-guard';
+import {AndroidQrComponent} from './android-qr/android-qr.component';
 
 const routes: Routes = [
 
@@ -29,6 +30,7 @@ const routes: Routes = [
 
   { path: '', redirectTo: '/eventmain', pathMatch: 'full' },
   { path: 'eventmain', component: EventComponent },
+  { path: 'android', component: AndroidQrComponent },
 
 
   {

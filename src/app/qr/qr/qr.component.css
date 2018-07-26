@@ -214,11 +214,11 @@ h1{
   }
 }
 
-/*@media (min-width:700px)  {*/
-  /*#overlayMessage {*/
-    /*display: none;*/
-  /*}*/
-/*}*/
+@media (min-width:777px)  {
+  #overlayMessage {
+    display: none;
+  }
+}
 
 /*For screen size 641px to 767px*/
 @media only screen and (min-width: 320px) and (max-width: 767px) {
@@ -235,13 +235,13 @@ h1{
   padding-bottom: 44px;
 }
 
-#appLogo {
+.appLogo {
   height: 15px;
   width: 15px;
   margin-right: 7px;
 }
 
-.iphone {
+#iphone {
   margin-left: 40px;
 }
 

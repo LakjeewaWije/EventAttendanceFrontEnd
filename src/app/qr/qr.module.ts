@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { RouterModule } from '@angular/router';
 
 // App Imports
 import {QrComponent} from './qr/qr.component';
@@ -10,6 +11,7 @@ import {QrComponent} from './qr/qr.component';
   imports: [
     CommonModule,
     NgxQRCodeModule,
+    RouterModule
   ],
   declarations: [QrComponent]
 })
