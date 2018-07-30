@@ -3,6 +3,10 @@
   margin-top: -69px;
 }
 
+.logo {
+  margin-top: 20px;
+}
+
 .view-qr{
   background-color: rgb(255, 254, 253);
   height: 100%!important;
@@ -12,6 +16,7 @@
   height: 25rem;
   box-shadow: 5px 10px 18px #888888;
   margin: 0 auto;
+  bottom: 5%;
 }
 
 .topDiv{
@@ -276,8 +281,9 @@ h1{
   }
 
   .qrImage {
-    border-width: 300px;
+    border: none;
   }
+
 }
 
 @media (min-width:777px)  {

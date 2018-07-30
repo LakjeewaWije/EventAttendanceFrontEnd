@@ -6,6 +6,7 @@ import {QrService} from '../qr.service';
 import {ActivatedRoute} from '@angular/router';
 
 
+
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.component.html',
@@ -19,7 +20,7 @@ export class QrComponent implements OnInit {
   eventName: any;
   public showSpinner;
   public showLogo;
-  public showBorder;
+
 
   constructor(private qrService: QrService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
@@ -46,6 +47,7 @@ export class QrComponent implements OnInit {
           this.showLogo = true;
           document.getElementById('qr').style.border = '2px solid #b3b3b3';
           document.getElementById('qr').style.borderRadius = '5px';
+
 
 
           this.generateQROnresponseSuccess(res);
