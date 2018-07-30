@@ -18,8 +18,9 @@ export class QrComponent implements OnInit {
   qrPayload: any = {};
   fcmToken = 'default';
   eventName: any;
-  public showSpinner;
-  public showLogo;
+  showSpinner;
+  showLogo;
+  showBorder;
 
 
   constructor(private qrService: QrService, private route: ActivatedRoute) {
@@ -45,16 +46,15 @@ export class QrComponent implements OnInit {
         setTimeout(() => {
           this.showSpinner = false;
           this.showLogo = true;
-          document.getElementById('qr').style.border = '2px solid #b3b3b3';
-          document.getElementById('qr').style.borderRadius = '5px';
-
-
+          this.showBorder = true;
 
           this.generateQROnresponseSuccess(res);
         }, 500);
 
         this.showSpinner = true;
         this.showLogo = false;
+
+
 
       },
       err => {

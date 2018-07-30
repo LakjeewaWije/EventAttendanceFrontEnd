@@ -40,6 +40,10 @@
   text-align: center;
 }
 
+.border {
+  border: 2px solid #b3b3b3;
+}
+
 h1{
   font-family: 'Hammersmith One', sans-serif;
 }
