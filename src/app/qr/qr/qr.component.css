@@ -41,7 +41,10 @@
 }
 
 .border {
-  border: 2px solid #b3b3b3;
+  border: 1px solid #b3b3b3;
+  outline-color: #b3b3b3;
+  outline-style: solid;
+  outline-width: medium;
 }
 
 h1{
