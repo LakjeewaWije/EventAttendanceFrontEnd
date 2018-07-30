@@ -43,13 +43,13 @@
               </div>
               <div class="col-md-5">
                 <div class="qrImage" id="qr">
-                  <img src="https://seeklogo.com/images/S/snapchat-ghost-logo-B618EE0704-seeklogo.com.png" class="logoOnQr" id="kliqlogo" >
+                  <img src="https://seeklogo.com/images/S/snapchat-ghost-logo-B618EE0704-seeklogo.com.png" *ngIf="showLogo" class="logoOnQr" id="kliqlogo" >
                   <ngx-qrcode  class="qr"
                                [qrc-element-type]="value"
                                [qrc-value] = "value" >
 
                   </ngx-qrcode>
-                  <div class="loader" id="spinner"></div>
+                  <div *ngIf="showSpinner" class="loader" id="spinner"></div>
 
                 </div>
               </div>

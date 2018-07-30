@@ -274,6 +274,10 @@ h1{
   .overlayMessage {
     display: block;
   }
+
+  .qrImage {
+    border-width: 300px;
+  }
 }
 
 @media (min-width:777px)  {

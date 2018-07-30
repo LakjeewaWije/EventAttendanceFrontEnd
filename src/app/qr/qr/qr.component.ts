@@ -17,6 +17,10 @@ export class QrComponent implements OnInit {
   qrPayload: any = {};
   fcmToken = 'default';
   eventName: any;
+  public showSpinner;
+  public showLogo;
+  public showBorder;
+
   constructor(private qrService: QrService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.qrPayload.eventName = params['eventName'];
@@ -38,15 +42,18 @@ export class QrComponent implements OnInit {
     this.qrService.generateQR(localStorage.getItem('fcmToken')).subscribe(
       res => {
         setTimeout(() => {
-          document.getElementById('spinner').style.display = 'none';
-          document.getElementById('kliqlogo').style.display = 'block';
+          this.showSpinner = false;
+          this.showLogo = true;
           document.getElementById('qr').style.border = '2px solid #b3b3b3';
           document.getElementById('qr').style.borderRadius = '5px';
+
+
           this.generateQROnresponseSuccess(res);
-
-
         }, 500);
-        document.getElementById('kliqlogo').style.display = 'none';
+
+        this.showSpinner = true;
+        this.showLogo = false;
+
       },
       err => {
         this.generateQROnresponseError(err);
