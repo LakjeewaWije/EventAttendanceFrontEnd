@@ -30,23 +30,14 @@
 .qrImage{
   margin: auto;
   position: absolute;
-  top: 37%;
+  top: 38%;
   transform: translateY(-50%);
   text-align: center;
-  border: solid 1px #000;
 }
 
 h1{
   font-family: 'Hammersmith One', sans-serif;
 }
-
-/*.rowbet{*/
-  /*padding-top: 2rem;*/
-/*}*/
-/*.rowbetqr{*/
-  /*height: 2rem;*/
-  /*text-align: center;*/
-/*}*/
 
 .eventName {
   color: #7503dc;
@@ -76,29 +67,8 @@ h1{
   width: 40px;
 }
 
-/*.divtopimage{*/
-  /*height: 60px;*/
-  /*width: 60px;*/
-  /*position: absolute;*/
-  /*top: 2rem;*/
-  /*left: 25rem;*/
-/*}*/
 
-/*.divtoplogotext{*/
-  /*position: relative;*/
-  /*position: absolute;*/
-  /*color: white;*/
-  /*text-decoration-style: solid;*/
-  /*font-size: 20px;*/
-  /*top: 2rem;*/
-  /*left: 29rem;*/
-/*}*/
-
-/*.itemslist1{*/
-  /*text-align: center;*/
-/*}*/
-
-.loader {
+#spinner {
   border: 16px solid #7503dc;
   border-radius: 50%;
   border-top: 16px solid #fffefd;
@@ -152,27 +122,29 @@ h1{
 }
 
 #iphone {
-  width: 100px;
   text-align: center;
+  width: 150px;
   padding: 6px;
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   cursor: pointer;
+
 }
 #android {
+  width: 150px;
   text-align: center;
   padding: 6px;
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   cursor: pointer;
+
 }
 
 .copyright {
   text-align: center;
 }
-
 
 /* MEDIA QUERIES */
 
@@ -214,7 +186,7 @@ h1{
   .loader {
     margin-left: 30%;
   }
-  
+
 }
 
 @media (min-width:700px)  {

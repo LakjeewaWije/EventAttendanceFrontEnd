@@ -42,14 +42,14 @@
 
               </div>
               <div class="col-md-5">
-                <div class="qrImage">
+                <div class="qrImage" id="qr">
                   <img src="https://seeklogo.com/images/S/snapchat-ghost-logo-B618EE0704-seeklogo.com.png" class="logoOnQr" id="kliqlogo" >
                   <ngx-qrcode  class="qr"
                                [qrc-element-type]="value"
                                [qrc-value] = "value" >
 
                   </ngx-qrcode>
-                  <div class="loader" id="ld1" ></div>
+                  <div class="loader" id="spinner"></div>
 
                 </div>
               </div>
@@ -61,12 +61,13 @@
     </div>
   </div>
   <div class="app">
-    <button id="android" routerLink="/android"><img class="appLogo" src="../../../assets/images/android-logo.jpg">Android</button>
-    <button id="iphone" routerLink="/ios"><img class="appLogo" src="../../../assets/images/apple-logo.jpg">IOS</button>
+    <button id="android"><a href="https://play.google.com/store/apps/details?id=com.populo.gradchat&hl=en"><img class="appLogo" src="../../../assets/images/android-logo.jpg"></a><a routerLink="/android">Get QR code</a></button>
+    <button id="iphone"><a href="https://itunes.apple.com/us/app/gradchat/id1259036050?mt=8"><img class="appLogo" src="../../../assets/images/apple-logo.jpg"></a><a routerLink="/ios">Get QR code</a></button>
+
   </div>
 
   <div>
     <p class="copyright">&#169; 2018 Kliq</p>
   </div>
-  
+
 </div>

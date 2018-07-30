@@ -38,9 +38,13 @@ export class QrComponent implements OnInit {
     this.qrService.generateQR(localStorage.getItem('fcmToken')).subscribe(
       res => {
         setTimeout(() => {
-          document.getElementById('ld1').style.display = 'none';
+          document.getElementById('spinner').style.display = 'none';
           document.getElementById('kliqlogo').style.display = 'block';
+          document.getElementById('qr').style.border = '2px solid #b3b3b3';
+          document.getElementById('qr').style.borderRadius = '5px';
           this.generateQROnresponseSuccess(res);
+
+
         }, 500);
         document.getElementById('kliqlogo').style.display = 'none';
       },
@@ -48,6 +52,7 @@ export class QrComponent implements OnInit {
         this.generateQROnresponseError(err);
       }
     );
+
   }
 
   /**
