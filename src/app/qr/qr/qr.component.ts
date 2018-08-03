@@ -5,8 +5,6 @@ import { Component, OnInit} from '@angular/core';
 import {QrService} from '../qr.service';
 import {ActivatedRoute} from '@angular/router';
 
-
-
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.component.html',
@@ -22,7 +20,6 @@ export class QrComponent implements OnInit {
   showLogo;
   showBorder;
 
-
   constructor(private qrService: QrService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.qrPayload.eventName = params['eventName'];
@@ -36,6 +33,7 @@ export class QrComponent implements OnInit {
     // document.getElementById('kliqlogo').style.display = 'block';
     this.qrService.reloadPage();
   }
+
 
   /**
    * catch the returned response from qr service and behaves accordingly for the success and error
@@ -54,14 +52,11 @@ export class QrComponent implements OnInit {
         this.showSpinner = true;
         this.showLogo = false;
 
-
-
       },
       err => {
         this.generateQROnresponseError(err);
       }
     );
-
   }
 
   /**
@@ -74,7 +69,6 @@ export class QrComponent implements OnInit {
     this.value = '{' + '\n' + '"eventId": ' + '"' + this.qrPayload.eventId + '"' + ',' + '\n' + '"eventName": ' + '"' + this.qrPayload.eventName + '"' + ',' + '\n' + '"uuid": ' + '"' +
       this.qrPayload.UUID + '"' + ',' + '\n' + '"browserToken": ' + '"' + this.qrPayload.browserToken + '"' + '\n' + '}';
   }
-
   /**
    * behaves to error response from generateQR request
    * @param {string} error

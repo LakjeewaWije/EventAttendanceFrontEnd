@@ -24,10 +24,7 @@ export class ApiEndpointService {
 
   private urlEndPoints: any = {
 
-
-
-
-    'baseUrl' : 'http://192.168.8.104:9000',
+    'baseUrl' : 'http://192.168.8.110:9000',
     'event' : '/event',
     'con' : '/con',
     'qr' : '/qr'

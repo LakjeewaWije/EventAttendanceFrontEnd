@@ -9,20 +9,20 @@ import {QrComponent} from './qr/qr/qr.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {AuthGuardService} from './qr/route-guard';
 import {AndroidQrComponent} from './android-qr/android-qr.component';
-import {IosQrComponent} from './ios-qr/ios-qr.component'
+import {IosQrComponent} from './ios-qr/ios-qr.component';
 
 const routes: Routes = [
 
-  {
-    path: '',
-    component: EventComponent,
-    resolve: {
-      url: 'externalUrlRedirectResolver'
-    },
-    data: {
-      externalUrl: 'http://www.gradchat.com/'
-    }
-  },
+  // {
+  //   path: '',
+  //   component: EventComponent,
+  //   resolve: {
+  //     url: 'externalUrlRedirectResolver'
+  //   },
+  //   data: {
+  //     externalUrl: 'http://www.gradchat.com/'
+  //   }
+  // },
 
 
   // { path: '', redirectTo: '/gradchat', pathMatch: 'full' },
