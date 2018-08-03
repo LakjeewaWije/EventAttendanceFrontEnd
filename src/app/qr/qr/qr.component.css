@@ -16,7 +16,7 @@
   height: 25rem;
   box-shadow: 5px 10px 18px #888888;
   margin: 0 auto;
-  bottom: 5%;
+  /*bottom: 5%;*/
 }
 
 .topDiv{
@@ -118,40 +118,23 @@ h1{
   padding-bottom: 44px;
 }
 
-.appLogo {
-  height: 25px;
-  width: 25px;
-  margin-right: 7px;
-}
-
-#iphone {
-  margin-left: 40px;
-}
-
 .app {
   text-align: center;
-  padding-bottom: 20px;
-}
 
-#iphone {
-  text-align: center;
-  width: 150px;
-  padding: 6px;
-  border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  cursor: pointer;
 
 }
-#android {
-  width: 150px;
-  text-align: center;
-  padding: 6px;
-  border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  cursor: pointer;
 
+.qrLinks {
+  text-align: center;
+}
+
+.androidLink {
+  margin-right: 80px;
+}
+
+#androidIcon {
+  height: 75px;
+  width: inherit;
 }
 
 .copyright {
