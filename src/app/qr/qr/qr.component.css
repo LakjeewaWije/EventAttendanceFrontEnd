@@ -122,6 +122,7 @@ h1{
   text-align: center;
 
 
+
 }
 
 .qrLinks {
@@ -133,8 +134,8 @@ h1{
 }
 
 #androidIcon {
-  height: 75px;
-  width: inherit;
+  height: 73px;
+  /*width: inherit;*/
 }
 
 .copyright {
