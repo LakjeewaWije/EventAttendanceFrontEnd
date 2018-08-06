@@ -1,10 +1,10 @@
 // Third Party Imports
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // App imports
-import {QrService} from '../qr.service';
-import {ActivatedRoute} from '@angular/router';
-
+import { QrService } from '../qr.service';
+import { ActivatedRoute } from '@angular/router';
+import { QuickResponseModel } from './qr-model';
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.component.html',
@@ -13,18 +13,22 @@ import {ActivatedRoute} from '@angular/router';
 
 export class QrComponent implements OnInit {
   value;
-  qrPayload: any = {};
+  // qrPayload: any = {};
   fcmToken = 'default';
+  private qrpayload: QuickResponseModel = new QuickResponseModel();
   eventName: any;
-  showSpinner;
+  showSpinner = true;
   showLogo;
   showBorder;
 
+
   constructor(private qrService: QrService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
-      this.qrPayload.eventName = params['eventName'];
-      this.qrPayload.eventId = params['eventId'];
-      this.eventName = params['eventName'];
+      this.qrpayload.$eventName = decodeURIComponent(params['eventName']);
+      this.qrpayload.$eventId = params['eventId'];
+      // console.log(this.qrpayload.$eventId);
+      // console.log(params['eventId']);
+      this.eventName = decodeURIComponent(params['eventName']);
     });
   }
 
@@ -39,24 +43,8 @@ export class QrComponent implements OnInit {
    * catch the returned response from qr service and behaves accordingly for the success and error
    */
   generateQR() {
-    this.qrService.generateQR(localStorage.getItem('fcmToken')).subscribe(
-      res => {
-        setTimeout(() => {
-          this.showSpinner = false;
-          this.showLogo = true;
-          this.showBorder = true;
-
-          this.generateQROnresponseSuccess(res);
-        }, 500);
-
-        this.showSpinner = true;
-        this.showLogo = false;
-
-      },
-      err => {
-        this.generateQROnresponseError(err);
-      }
-    );
+    this.qrService.generateQR(localStorage.getItem('fcmToken'), this.qrpayload.$eventId, this.generateQROnresponseSuccess.bind(this),
+      this.generateQROnresponseError.bind(this));
   }
 
   /**
@@ -64,16 +52,24 @@ export class QrComponent implements OnInit {
    * @param res
    */
   generateQROnresponseSuccess(res: any): void {
-    this.qrPayload.UUID = res.data.uuid;
-    this.qrPayload.browserToken = res.data.browserToken;
-    this.value = '{' + '\n' + '"eventId": ' + '"' + this.qrPayload.eventId + '"' + ',' + '\n' + '"eventName": ' + '"' + this.qrPayload.eventName + '"' + ',' + '\n' + '"uuid": ' + '"' +
-      this.qrPayload.UUID + '"' + ',' + '\n' + '"browserToken": ' + '"' + this.qrPayload.browserToken + '"' + '\n' + '}';
+    setTimeout(() => {
+      this.showSpinner = false;
+      this.showLogo = true;
+      this.showBorder = true;
+    }, 500);
+
+    this.qrpayload.$uuid = res.data.uuid;
+    this.qrpayload.$browserToken = res.data.browserToken;
+    this.value = JSON.stringify(this.qrpayload);
+    // this.value = '{' + '\n' + '"eventId": ' + '"' + this.qrpayload.eventId + '"' + ',' + '\n' + '"eventName": ' + '"' + this.qrPayload.eventName + '"' + ',' + '\n' + '"uuid": ' + '"' +
+    //   this.qrPayload.UUID + '"' + ',' + '\n' + '"browserToken": ' + '"' + this.qrPayload.browserToken + '"' + '\n' + '}';
   }
   /**
    * behaves to error response from generateQR request
    * @param {string} error
    */
   generateQROnresponseError(error: string): void {
+    this.generateQROnresponseError(error);
     console.log(error);
   }
 }

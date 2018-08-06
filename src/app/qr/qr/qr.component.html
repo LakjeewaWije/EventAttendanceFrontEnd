@@ -44,7 +44,7 @@
               <div class="col-md-5">
                 <div [ngClass]="{border: showBorder == true}" class="qrImage" id="qr">
                   <img src="https://seeklogo.com/images/S/snapchat-ghost-logo-B618EE0704-seeklogo.com.png" *ngIf="showLogo" class="logoOnQr" id="kliqlogo" >
-                  <ngx-qrcode  class="qr"
+                  <ngx-qrcode  *ngIf="showLogo" class="qr"
                                [qrc-element-type]="value"
                                [qrc-value] = "value" >
 

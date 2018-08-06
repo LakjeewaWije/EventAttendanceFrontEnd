@@ -24,10 +24,13 @@ export class QrService {
    * @param {string} token
    * @returns {Observable<any>}
    */
-  generateQR(token: string): Observable<any> {
-    return this.http.post<any>(this.apiEndpoints.urlGenerator('qr'), {
+  generateQR(token: string,eventId: String,onSuccess: any,onErrorResponse: any){
+    console.log(eventId);
+     this.http.post<any>(this.apiEndpoints.urlGenerator('qr'), {
       browserToken: token,
-    }, {headers: this.httpHeader});
+      eventId:eventId,
+    }, {headers: this.httpHeader}).subscribe(onSuccess,onErrorResponse);
+  
   }
 
   /**

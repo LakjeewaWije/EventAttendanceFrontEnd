@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-
+  baseUrl: "http://dev.api.gradchat.co/v2",
   config: {
     apiKey: 'AIzaSyAWVvtr9WUb5xNPQjKMu12M-Fr_uy-EZJY',
     authDomain: 'event-attendance-54b25.firebaseapp.com',
