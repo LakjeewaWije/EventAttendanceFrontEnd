@@ -1,6 +1,7 @@
 .container{
   margin-bottom: 2rem;
   margin-top: -69px;
+
 }
 
 .logo {
@@ -121,8 +122,6 @@ h1{
 .app {
   text-align: center;
 
-
-
 }
 
 .qrLinks {
@@ -130,16 +129,17 @@ h1{
 }
 
 .androidLink {
-  margin-right: 80px;
+  margin-right: 65px;
 }
 
 #androidIcon {
-  height: 73px;
-  /*width: inherit;*/
+  height: 71px;
+  width: 165px;
 }
 
 .copyright {
   text-align: center;
+  margin-top: 20px;
 }
 
 /* MEDIA QUERIES */
