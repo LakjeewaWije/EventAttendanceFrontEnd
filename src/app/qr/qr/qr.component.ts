@@ -4,6 +4,7 @@ import { Component, OnInit} from '@angular/core';
 // App imports
 import {QrService} from '../qr.service';
 import {ActivatedRoute} from '@angular/router';
+import {ConstantsService} from '../../utils/constants/constants.service';
 
 @Component({
   selector: 'app-qr',
@@ -20,7 +21,7 @@ export class QrComponent implements OnInit {
   showLogo;
   showBorder;
 
-  constructor(private qrService: QrService, private route: ActivatedRoute) {
+  constructor(private qrService: QrService, private route: ActivatedRoute, private qrStrings: ConstantsService) {
     this.route.params.subscribe(params => {
       this.qrPayload.eventName = params['eventName'];
       this.qrPayload.eventId = params['eventId'];
@@ -32,6 +33,10 @@ export class QrComponent implements OnInit {
     this.generateQR();
     // document.getElementById('kliqlogo').style.display = 'block';
     this.qrService.reloadPage();
+  }
+
+  qrTemplateStrings() {
+    return this.qrStrings.getQrStrings();
   }
 
 

@@ -1,6 +1,6 @@
 <!--<div class="wrp">-->
 
-<p id="overlayMessage">Cannot display Console on this screen size</p>
+<p id="overlayMessage">{{qrTemplateStrings().overlayMessage}}</p>
 
 <div class="container-fluid">
   <div class="row topDiv">
@@ -22,21 +22,21 @@
           <div class="card-body">
             <div class="row">
               <div class="col-lg-12">
-                <h4 class="checkInMessage">Participants, Please Check-in To The Event Here</h4>
+                <h4 class="checkInMessage">{{qrTemplateStrings().checkInMessage}}</h4>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
                 <h1 class="eventName">{{ eventName }}</h1>
                 <div class="stepDetails">
-                  <p>1. Open kliq App on your phone</p>
-                  <p>2. Tap Menu <img  class="icons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/768px-Hamburger_icon.svg.png"> and select <img  class="icons" src="https://png.icons8.com/metro/1600/checked-checkbox.png"> Happening</p>
-                  <p>3. Choose the event on the Screen</p>
-                  <p>4. Tap to open the QR code on Event</p>
-                  <p>5. Point your phone to the screen to capture the code</p>
+                  <p>{{qrTemplateStrings().stepOne}}</p>
+                  <p>{{qrTemplateStrings().stepTwo}}<img  class="icons" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/768px-Hamburger_icon.svg.png"> and select <img  class="icons" src="https://png.icons8.com/metro/1600/checked-checkbox.png"> Happening</p>
+                  <p>{{qrTemplateStrings().stepThree}}</p>
+                  <p>{{qrTemplateStrings().stepFour}}</p>
+                  <p>{{qrTemplateStrings().stepFive}}</p>
                 </div>
                 <div class="getHelp">
-                  <a href="#">Need help to get started?</a>
+                  <a href="#">{{qrTemplateStrings().needHelp}}}</a>
                 </div>
 
 
@@ -66,8 +66,8 @@
   </div>
 
   <div class="qrLinks">
-  <a routerLink="/android" class="androidLink">Get QR code</a>
-  <a routerLink="/ios" class="iosLink">Get QR code</a>
+  <a routerLink="/android" class="androidLink">{{qrTemplateStrings().getQr}}</a>
+  <a routerLink="/ios" class="iosLink">{{qrTemplateStrings().getQr}}</a>
   </div>
 
   <div>

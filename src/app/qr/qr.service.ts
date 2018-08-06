@@ -1,15 +1,18 @@
 // Third Party Imports
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import * as firebase from 'firebase';
 import {constants} from '../utils/api-endpoint-service/api-endpoint.service';
 import { ApiEndpointService } from '../utils/api-endpoint-service/api-endpoint.service';
 
 
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+
 })
+
 export class QrService {
 
   browserToken: string;
@@ -29,6 +32,8 @@ export class QrService {
       browserToken: token,
     }, {headers: this.httpHeader});
   }
+
+
 
   /**
    * Reloads the page when an user registered  successfully by scanning a qr code in the console

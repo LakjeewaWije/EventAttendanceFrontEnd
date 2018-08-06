@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpHeaders} from '@angular/common/http';
+import {ConstantsService} from '../constants/constants.service';
 
 export const constants = {
-
-  baseUrl : 'http://192.168.8.101:9000',
-
 
   headers : new HttpHeaders({
   'Content-Type': 'application/json; charset=utf-8',
@@ -18,19 +16,21 @@ export const constants = {
 })
 export class ApiEndpointService {
 
-  constructor() {
+  constructor(private baseUrl: ConstantsService) {
 
   }
 
   private urlEndPoints: any = {
 
-    'baseUrl' : 'http://192.168.8.102:9000',
+    'baseUrl' : 'http://dev.api.gradchat.co/v2',
     'event' : '/event',
     'con' : '/con',
     'qr' : '/qr'
   };
 
+
+  /*This is the method we pass whenever we need the url*/
   public urlGenerator(key): any {
-    return `${this.urlEndPoints['baseUrl']}${this.urlEndPoints[key]}`;
+    return `${this.baseUrl.getBaseUrl()}${this.urlEndPoints[key]}`;
   }
 }
