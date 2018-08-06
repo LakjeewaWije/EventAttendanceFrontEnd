@@ -5,7 +5,9 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate{
+export class QrRouteService implements CanActivate {
+
+  /*Navigates to the QR view if the fcm token is available in the local storage*/
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
     if (localStorage.getItem('fcmToken')) {

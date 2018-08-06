@@ -6,28 +6,24 @@ import { CommonModule } from '@angular/common';
 // App Imports
 import {EventComponent} from './event/event/event.component';
 import {QrComponent} from './qr/qr/qr.component';
-import {NotFoundComponent} from './not-found/not-found.component';
-import {AuthGuardService} from './qr/route-guard';
+import {NotFoundComponent} from './error/404/404.component';
+import {QrRouteService} from './qr/route-guard';
 import {AndroidQrComponent} from './android-qr/android-qr.component';
 import {IosQrComponent} from './ios-qr/ios-qr.component';
 
 const routes: Routes = [
 
-  // {
-  //   path: '',
-  //   component: EventComponent,
-  //   resolve: {
-  //     url: 'externalUrlRedirectResolver'
-  //   },
-  //   data: {
-  //     externalUrl: 'http://www.gradchat.com/'
-  //   }
-  // },
+  {
+    path: '',
+    component: EventComponent,
+    resolve: {
+      url: 'externalUrlRedirectResolver'
+    },
+    data: {
+      externalUrl: 'http://www.gradchat.com/'
+    }
+  },
 
-
-  // { path: '', redirectTo: '/gradchat', pathMatch: 'full' },
-
-  // { path: 'eventmain', component: EventComponent },
 
   { path: '', redirectTo: '/eventmain', pathMatch: 'full' },
   { path: 'eventmain', component: EventComponent },
@@ -38,7 +34,7 @@ const routes: Routes = [
   {
     path : 'qrscan/:eventId/:eventName',
     component : QrComponent,
-    canActivate : [AuthGuardService]
+    canActivate : [QrRouteService]
   },
 
   // { path: 'qrscan/:eventId/:eventName', component: QrComponent },

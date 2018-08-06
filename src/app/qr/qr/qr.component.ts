@@ -2,9 +2,11 @@
 import { Component, OnInit } from '@angular/core';
 
 // App imports
+
 import { QrService } from '../qr.service';
 import { ActivatedRoute } from '@angular/router';
 import { QuickResponseModel } from './qr-model';
+import {ConstantsService} from '../../utils/constants/constants.service';
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.component.html',
@@ -22,9 +24,12 @@ export class QrComponent implements OnInit {
   showBorder;
 
 
-  constructor(private qrService: QrService, private route: ActivatedRoute) {
+  constructor(private qrService: QrService, private route: ActivatedRoute, private qrStrings: ConstantsService) {
+
     this.route.params.subscribe(params => {
+      const eventname = encodeURIComponent('Table Tennis Championship 2017');
       this.qrpayload.$eventName = decodeURIComponent(params['eventName']);
+      console.log(eventname);
       this.qrpayload.$eventId = params['eventId'];
       // console.log(this.qrpayload.$eventId);
       // console.log(params['eventId']);
@@ -36,6 +41,10 @@ export class QrComponent implements OnInit {
     this.generateQR();
     // document.getElementById('kliqlogo').style.display = 'block';
     this.qrService.reloadPage();
+  }
+
+  qrTemplateStrings() {
+    return this.qrStrings.getQrStrings();
   }
 
 
@@ -58,7 +67,7 @@ export class QrComponent implements OnInit {
       this.showBorder = true;
     }, 500);
 
-    this.qrpayload.$uuid = res.data.uuid;
+    this.qrpayload.$uuid = res.data.qrIdentifier;
     this.qrpayload.$browserToken = res.data.browserToken;
     this.value = JSON.stringify(this.qrpayload);
     // this.value = '{' + '\n' + '"eventId": ' + '"' + this.qrpayload.eventId + '"' + ',' + '\n' + '"eventName": ' + '"' + this.qrPayload.eventName + '"' + ',' + '\n' + '"uuid": ' + '"' +

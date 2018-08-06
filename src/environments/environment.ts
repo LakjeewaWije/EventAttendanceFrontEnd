@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://dev.api.gradchat.co/v2",
+
+  baseUrl: 'http://dev.api.gradchat.co/v2',
   config: {
     apiKey: 'AIzaSyAWVvtr9WUb5xNPQjKMu12M-Fr_uy-EZJY',
     authDomain: 'event-attendance-54b25.firebaseapp.com',
@@ -13,6 +14,7 @@ export const environment = {
     storageBucket: 'event-attendance-54b25.appspot.com',
     messagingSenderId: '86891543279'
   },
+  accessToken: 'eyJhbGciOiJIUzUxMiJ9.eyJ1bml2ZXJzaXR5VXNlclByb2ZpbGVJZCI6IjEwMjE2MDc2NzU2ODU5NzgxMTIiLCJpc3MiOiJhdXRoMCIsInRpbWUiOjE1MzI0MDU0NzcsInR5cGUiOiJpbnZpdGUiLCJ1dWlkIjoiYmI3MTgzZDQtM2ZkOC00MTBjLTgzMjctYzNmZWJhYTM5MDQ3IiwiZW1haWwiOiJjaGF0aHVtYWwuc2FzYW5nYTAyQGdtYWlsLmNvbSJ9.RgTF9SUZ6k1f69zGL65VKAOZ8_DayTxbPcdhKaTx7kWrpXyKSid1-qelV7kULegLYbpVTwsT8nNpm3jKsTvj2Q'
 };
 
 /*
